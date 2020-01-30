@@ -15,7 +15,7 @@ const getOHLCV = async (ex, ticker, interval, isFuture = false) => {
     } else {
         exchange = new exchangeClass({})
     }
-    return await exchange.fetchOHLCV(ticker, interval, undefined, 10)
+    return await exchange.fetchOHLCV(ticker, interval)
 }
 // console.log(getOHLCV("binance", "BTC/USDT", "15m", true))
 module.exports = getOHLCV

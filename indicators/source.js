@@ -1,11 +1,16 @@
-const oIndex = 0,
-    hIndex = 1,
-    lIndex = 2,
-    cIndex = 3,
-    vIndex = 4
+const timeIndex = 0,
+    oIndex = 1,
+    hIndex = 2,
+    lIndex = 3,
+    cIndex = 4,
+    vIndex = 5
 const detachSource = (ohlcv) => {
     let source = []
-    source["open"] = source["high"] = source["low"] = source["close"] = source["volume"] = []
+    source["open"] = []
+    source["high"] = []
+    source["low"] = []
+    source["close"] = []
+    source["volume"] = []
     ohlcv.forEach(data => {
         source["open"].push(data[oIndex])
         source["high"].push(data[hIndex])
