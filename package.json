@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/thanhnguyennguyen/trading-indicator/issues"
   },
-  "homepage": "https://github.com/thanhnguyennguyen/trading-indicator#readme"
+  "homepage": "https://github.com/thanhnguyennguyen/trading-indicator#readme",
+  "dependencies": {
+    "ccxt": "^1.22.7"
+  }
 }
