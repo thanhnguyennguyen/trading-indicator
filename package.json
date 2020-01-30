@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/thanhnguyennguyen/trading-indicator#readme",
   "dependencies": {
-    "ccxt": "^1.22.7"
+    "ccxt": "^1.22.7",
+    "technicalindicators": "^3.0.0"
   }
 }
