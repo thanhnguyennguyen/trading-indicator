@@ -8,7 +8,7 @@ const bb = async (bbLength, stdDev, sourceType, ex, ticker, interval, isFuture =
     let input = {
         values: source[sourceType],
         period: bbLength,
-stdDev: stdDev,
+        stdDev: stdDev,
     }
     return await indicators.BollingerBands.calculate(input)
 }

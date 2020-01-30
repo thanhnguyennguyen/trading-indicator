@@ -12,3 +12,4 @@ const rsi = async (rsiLength, sourceType, ex, ticker, interval, isFuture = false
     return await indicators.RSI.calculate(rsiInput)
 }
 module.exports = rsi
+

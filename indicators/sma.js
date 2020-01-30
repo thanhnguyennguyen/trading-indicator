@@ -12,3 +12,4 @@ const sma = async (smaLength, sourceType, ex, ticker, interval, isFuture = false
     return await indicators.SMA.calculate(smaInput)
 }
 module.exports = sma
+
