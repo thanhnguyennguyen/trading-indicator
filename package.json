@@ -1,0 +1,26 @@
+{
+  "name": "trading-indicator",
+  "version": "1.0.0",
+  "description": "provide trading technical indicator values",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thanhnguyennguyen/trading-indicator.git"
+  },
+  "keywords": [
+    "trading",
+    "indicators",
+    "technicalindicators",
+    "nguyennguyen",
+    "ccxt"
+  ],
+  "author": "NguyenNguyen (nguyenbk92@gmail.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thanhnguyennguyen/trading-indicator/issues"
+  },
+  "homepage": "https://github.com/thanhnguyennguyen/trading-indicator#readme"
+}
