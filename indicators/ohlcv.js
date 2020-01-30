@@ -19,4 +19,3 @@ const getOHLCV = async (ex, ticker, interval, isFuture = false) => {
 }
 // console.log(getOHLCV("binance", "BTC/USDT", "15m", true))
 module.exports = getOHLCV
-

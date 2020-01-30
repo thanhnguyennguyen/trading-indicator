@@ -2,13 +2,14 @@ const getOHLCV = require('./ohlcv.js')
 const detachSource = require('./source.js')
 const indicators = require('technicalindicators')
 
-const sma = async (smaLength, sourceType, ex, ticker, interval, isFuture = false) => {
+const bb = async (bbLength, stdDev, sourceType, ex, ticker, interval, isFuture = false) => {
     let ohlcv = await getOHLCV(ex, ticker, interval, isFuture)
     let source = detachSource(ohlcv)
-    let smaInput = {
+    let input = {
         values: source[sourceType],
-        period: smaLength
+        period: bbLength,
+stdDev: stdDev,
     }
-    return await indicators.SMA.calculate(smaInput)
+    return await indicators.BollingerBands.calculate(input)
 }
-module.exports = sma
+module.exports = bb
