@@ -2,13 +2,13 @@ const getOHLCV = require('./ohlcv.js')
 const detachSource = require('./source.js')
 const indicators = require('technicalindicators')
 
-const rsi = async (rsiLength, sourceType, ex, ticker, interval, isFuture = false) => {
+const sma = async (smaLength, sourceType, ex, ticker, interval, isFuture = false) => {
     let ohlcv = await getOHLCV(ex, ticker, interval, isFuture)
     let source = detachSource(ohlcv)
-    let rsiInput = {
+    let smaInput = {
         values: source[sourceType],
-        period: rsiLength
+        period: smaLength
     }
-    return await indicators.RSI.calculate(rsiInput)
+    return await indicators.SMA.calculate(smaInput)
 }
-module.exports = rsi
+module.exports = sma
