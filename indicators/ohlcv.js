@@ -9,7 +9,7 @@ const getOHLCV = async (ex, ticker, interval, isFuture = false) => {
 
         exchange = new exchangeClass({
             options: {
-                defaultMarket: 'futures'
+                defaultMarket: 'future'
             }
         })
     } else {
