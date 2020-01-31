@@ -68,8 +68,6 @@ npm install --save trading-indicator
   ```
   
   ## Ticker
-  
-  To fetch ticker
   - Parameter:
     - Exchange name
     - Symbol
@@ -105,23 +103,22 @@ npm install --save trading-indicator
 
   ## Supported exchanges
   
-  https://github.com/ccxt/ccxt#certified-cryptocurrency-exchanges
+  - https://github.com/ccxt/ccxt#certified-cryptocurrency-exchanges
   
-  https://github.com/ccxt/ccxt#supported-cryptocurrency-exchange-markets
+  - https://github.com/ccxt/ccxt#supported-cryptocurrency-exchange-markets
   
   ## Supported interval
-   
-   - 1m : 1 minute
-   - 5m: 5 minutes
-   - 15m: 15 minutes
-   - 30m: 30 minutes
-   - 45m: 45 minutes
-   - 1h : 1 hour
-   - 2h : 2 hours
-   - 4h : 4 hours
-   - 1d : 1 day
-   - 1w : 1 week
-   - 1M : 1 month
+  - 1m : 1 minute
+  - 5m: 5 minutes
+  - 15m: 15 minutes
+  - 30m: 30 minutes
+  - 45m: 45 minutes
+  - 1h : 1 hour
+  - 2h : 2 hours
+  - 4h : 4 hours
+  - 1d : 1 day
+  - 1w : 1 week
+  - 1M : 1 month
 
 ## Dependencies
 - [![ccxt](https://camo.githubusercontent.com/509b94aa541a5c3b461d1a84469f4b3d4112af57/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f434358542d6365727469666965642d677265656e2e7376673f73616e6974697a653d74727565)](https://github.com/ccxt/ccxt)
