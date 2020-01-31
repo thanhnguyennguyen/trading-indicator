@@ -67,6 +67,42 @@ npm install --save trading-indicator
       console.log(macdData[macdData.length - 2])
   ```
   
+  ## Ticker
+  
+  To fetch ticker
+  - Parameter:
+    - Exchange name
+    - Symbol
+    - IsFuture exchange
+  ```bash
+  let ticker = await indicators.ticker("binance", symbol, true)
+  ```
+  The structure of a ticker is as follows:
+```bash
+{
+    'symbol':        string symbol of the market ('BTC/USD', 'ETH/BTC', ...)
+    'info':        { the original non-modified unparsed reply from exchange API },
+    'timestamp':     int (64-bit Unix Timestamp in milliseconds since Epoch 1 Jan 1970)
+    'datetime':      ISO8601 datetime string with milliseconds
+    'high':          float, // highest price
+    'low':           float, // lowest price
+    'bid':           float, // current best bid (buy) price
+    'bidVolume':     float, // current best bid (buy) amount (may be missing or undefined)
+    'ask':           float, // current best ask (sell) price
+    'askVolume':     float, // current best ask (sell) amount (may be missing or undefined)
+    'vwap':          float, // volume weighed average price
+    'open':          float, // opening price
+    'close':         float, // price of last trade (closing price for current period)
+    'last':          float, // same as `close`, duplicated for convenience
+    'previousClose': float, // closing price for the previous period
+    'change':        float, // absolute change, `last - open`
+    'percentage':    float, // relative change, `(change/open) * 100`
+    'average':       float, // average price, `(last + open) / 2`
+    'baseVolume':    float, // volume of base currency traded for last 24 hours
+    'quoteVolume':   float, // volume of quote currency traded for last 24 hours
+}
+```
+
   ## Supported exchanges
   
   https://github.com/ccxt/ccxt#certified-cryptocurrency-exchanges
@@ -74,6 +110,7 @@ npm install --save trading-indicator
   https://github.com/ccxt/ccxt#supported-cryptocurrency-exchange-markets
   
   ## Supported interval
+   
    - 1m : 1 minute
    - 5m: 5 minutes
    - 15m: 15 minutes
