@@ -85,3 +85,7 @@ npm install --save trading-indicator
    - 1d : 1 day
    - 1w : 1 week
    - 1M : 1 month
+
+## Dependencies
+- [![ccxt](https://camo.githubusercontent.com/509b94aa541a5c3b461d1a84469f4b3d4112af57/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f434358542d6365727469666965642d677265656e2e7376673f73616e6974697a653d74727565)](https://github.com/ccxt/ccxt)
+- [technicalindicators](https://github.com/anandanand84/technicalindicators)
