@@ -11,10 +11,10 @@ npm install --save trading-indicator
 
 ## Available Indicators
   - RSI
-    ```bash
-      const rsi = require(trading-indicator).rsi
-      console.log(await rsi(14, "close", "binance", "BTC/USDT", "15m", true))
-    ```
+  ```bash
+     const rsi = require(trading-indicator).rsi
+     console.log(await rsi(14, "close", "binance", "BTC/USDT", "15m", true))
+   ```
 
   - SMA (Simple Moving Average)
   ```bash
