@@ -20,7 +20,7 @@ npm install --save trading-indicator
       - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
     
   ```bash
-     const rsi = require(trading-indicator).rsi
+     const rsi = require('trading-indicator').rsi
      console.log(await rsi(14, "close", "binance", "BTC/USDT", "15m", true))
    ```
 
@@ -33,7 +33,7 @@ npm install --save trading-indicator
       - Interval
       - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
   ```bash
-    const sma = require(trading-indicator).sma
+    const sma = require('trading-indicator').sma
     let smaData = await sma(8, "close", "binance", "BTC/USDT", "15m", true)
     console.log(smaData[smaData.length - 1])
   ```
@@ -47,7 +47,7 @@ npm install --save trading-indicator
       - Interval
       - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
   ```bash
-      const bb = require(trading-indicator).bb
+      const bb = require('trading-indicator').bb
       let bbData = await bb(50, 2, "close", "binance", "BTC/USDT", "15m", true)
       console.log(bbData[bbData.length - 2])
   ```
@@ -62,7 +62,7 @@ npm install --save trading-indicator
       - Interval
       - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
   ```bash
-      const macd = require(trading-indicator).macd
+      const macd = require('trading-indicator').macd
       let macdData = await macd(12, 26, 9, "close", "binance", "BTC/USDT", "15m", true)
       console.log(macdData[macdData.length - 2])
   ```
