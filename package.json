@@ -4,6 +4,7 @@
   "description": "provide trading technical indicator values",
   "main": "index.js",
   "scripts": {
+"start": "echo example to fetch data from binance && node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
