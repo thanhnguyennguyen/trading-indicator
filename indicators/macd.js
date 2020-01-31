@@ -16,4 +16,3 @@ const macd = async (fastPeriod, slowPeriod, signalPeriod, sourceType, ex, ticker
     return await indicators.MACD.calculate(input)
 }
 module.exports = macd
-

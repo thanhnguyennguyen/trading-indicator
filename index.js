@@ -2,11 +2,13 @@ const rsi = require('./indicators/rsi.js')
 const sma = require('./indicators/sma.js')
 const bb = require('./indicators/bollinger_band.js')
 const macd = require('./indicators/macd.js')
+const ticker = require('./indicators/ticker.js')
 module.exports = {
     rsi: rsi,
     sma: sma,
     bb: bb,
     macd: macd,
+    ticker: ticker,
 }
 // const main = async () => {
 //    console.log("RSI 14 on Binance BTC/USDT 15m")
