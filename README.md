@@ -67,7 +67,7 @@ npm install --save trading-indicator
       console.log(macdData[macdData.length - 2])
   ```
   
-  ## Ticker
+  ## Fetch ticker information
   - Parameter:
     - Exchange name
     - Symbol
