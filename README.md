@@ -19,7 +19,7 @@ npm install --save trading-indicator
       - Interval
       - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
     
-  ```bash
+  ```javascript
      const rsi = require('trading-indicator').rsi
      console.log(await rsi(14, "close", "binance", "BTC/USDT", "15m", true))
    ```
@@ -32,7 +32,7 @@ npm install --save trading-indicator
       - Ticker
       - Interval
       - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
-  ```bash
+  ```javascript
     const sma = require('trading-indicator').sma
     let smaData = await sma(8, "close", "binance", "BTC/USDT", "15m", true)
     console.log(smaData[smaData.length - 1])
@@ -46,7 +46,7 @@ npm install --save trading-indicator
       - Ticker
       - Interval
       - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
-  ```bash
+  ```javascript
       const bb = require('trading-indicator').bb
       let bbData = await bb(50, 2, "close", "binance", "BTC/USDT", "15m", true)
       console.log(bbData[bbData.length - 2])
@@ -61,7 +61,7 @@ npm install --save trading-indicator
       - Ticker
       - Interval
       - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
-  ```bash
+  ```javascript
       const macd = require('trading-indicator').macd
       let macdData = await macd(12, 26, 9, "close", "binance", "BTC/USDT", "15m", true)
       console.log(macdData[macdData.length - 2])
@@ -72,11 +72,11 @@ npm install --save trading-indicator
     - Exchange name
     - Symbol
     - IsFuture exchange
-  ```bash
+  ```javascript
   let ticker = await indicators.ticker("binance", symbol, true)
   ```
   The structure of a ticker is as follows:
-```bash
+```javascript
 {
     'symbol':        string symbol of the market ('BTC/USD', 'ETH/BTC', ...)
     'info':        { the original non-modified unparsed reply from exchange API },
