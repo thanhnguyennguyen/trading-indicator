@@ -24,6 +24,21 @@ npm install --save trading-indicator
      console.log(await rsi(14, "close", "binance", "BTC/USDT", "15m", true))
    ```
 
+
+  - EMA (Exponential Moving Average)
+    - Parameters:
+      - MA period: integer
+      - Input source: "open" |  "high" | "low" | "close"
+      - Exchange
+      - Ticker
+      - Interval
+      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+  ```javascript
+    const ema = require('trading-indicator').ema
+    let emaData = await ema(8, "close", "binance", "BTC/USDT", "15m", true)
+    console.log(emaData[emaData.length - 1])
+  ```
+  
   - SMA (Simple Moving Average)
     - Parameters:
       - MA period: integer
