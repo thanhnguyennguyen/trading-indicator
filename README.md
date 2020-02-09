@@ -10,21 +10,21 @@ npm install --save trading-indicator
 ```
 
 ## Available Indicators
-  - RSI
+  - BB (Bollinger bands)
     - Parameters:
-      - RSI period: integer
+      - Bollinger bands period: integer
+      - sdtDev : integer
       - Input source: "open" |  "high" | "low" | "close"
       - Exchange
       - Ticker
       - Interval
       - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
-    
   ```javascript
-     const rsi = require('trading-indicator').rsi
-     console.log(await rsi(14, "close", "binance", "BTC/USDT", "15m", true))
-   ```
-
-
+      const bb = require('trading-indicator').bb
+      let bbData = await bb(50, 2, "close", "binance", "BTC/USDT", "15m", true)
+      console.log(bbData[bbData.length - 2])
+  ```
+  
   - EMA (Exponential Moving Average)
     - Parameters:
       - MA period: integer
@@ -39,6 +39,51 @@ npm install --save trading-indicator
     console.log(emaData[emaData.length - 1])
   ```
   
+    
+  - MACD (Moving Average Convergence Divergence)
+    - Parameters:
+      - Fast period: integer
+      - Slow period: integer
+      - Signal period: integer
+      - Input source: "open" |  "high" | "low" | "close"
+      - Exchange
+      - Ticker
+      - Interval
+      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+  ```javascript
+      const macd = require('trading-indicator').macd
+      let macdData = await macd(12, 26, 9, "close", "binance", "BTC/USDT", "15m", true)
+      console.log(macdData[macdData.length - 2])
+  ```
+  
+  
+  - OBV
+    - Parameters:
+      - Exchange
+      - Ticker
+      - Interval
+      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+    
+  ```javascript
+     const obv = require('trading-indicator').obv
+     console.log(await obv("binance", "BTC/USDT", "15m", true))
+   ```
+
+  
+  - RSI
+    - Parameters:
+      - RSI period: integer
+      - Input source: "open" |  "high" | "low" | "close"
+      - Exchange
+      - Ticker
+      - Interval
+      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+    
+  ```javascript
+     const rsi = require('trading-indicator').rsi
+     console.log(await rsi(14, "close", "binance", "BTC/USDT", "15m", true))
+   ```
+
   - SMA (Simple Moving Average)
     - Parameters:
       - MA period: integer
@@ -66,37 +111,7 @@ npm install --save trading-indicator
     let wmaData = await wma(8, "close", "binance", "BTC/USDT", "15m", true)
     console.log(wmaData[wmaData.length - 1])
   ```
-  
-  - BB (Bollinger bands)
-    - Parameters:
-      - Bollinger bands period: integer
-      - sdtDev : integer
-      - Input source: "open" |  "high" | "low" | "close"
-      - Exchange
-      - Ticker
-      - Interval
-      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
-  ```javascript
-      const bb = require('trading-indicator').bb
-      let bbData = await bb(50, 2, "close", "binance", "BTC/USDT", "15m", true)
-      console.log(bbData[bbData.length - 2])
-  ```
-  - MACD (Moving Average Convergence Divergence)
-    - Parameters:
-      - Fast period: integer
-      - Slow period: integer
-      - Signal period: integer
-      - Input source: "open" |  "high" | "low" | "close"
-      - Exchange
-      - Ticker
-      - Interval
-      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
-  ```javascript
-      const macd = require('trading-indicator').macd
-      let macdData = await macd(12, 26, 9, "close", "binance", "BTC/USDT", "15m", true)
-      console.log(macdData[macdData.length - 2])
-  ```
-  
+
   ## Fetch ticker information
   - Parameter:
     - Exchange name
