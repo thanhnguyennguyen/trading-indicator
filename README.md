@@ -52,6 +52,21 @@ npm install --save trading-indicator
     let smaData = await sma(8, "close", "binance", "BTC/USDT", "15m", true)
     console.log(smaData[smaData.length - 1])
   ```
+  
+  - WMA (Weighted Moving Average)
+    - Parameters:
+      - MA period: integer
+      - Input source: "open" |  "high" | "low" | "close"
+      - Exchange
+      - Ticker
+      - Interval
+      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+  ```javascript
+    const wma = require('trading-indicator').wma
+    let wmaData = await wma(8, "close", "binance", "BTC/USDT", "15m", true)
+    console.log(wmaData[wmaData.length - 1])
+  ```
+  
   - BB (Bollinger bands)
     - Parameters:
       - Bollinger bands period: integer
