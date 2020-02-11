@@ -55,7 +55,20 @@ npm install --save trading-indicator
       let macdData = await macd(12, 26, 9, "close", "binance", "BTC/USDT", "15m", true)
       console.log(macdData[macdData.length - 2])
   ```
-  
+
+  - MFI
+    - Parameters:
+      - MFI period: integer
+      - Exchange
+      - Ticker
+      - Interval
+      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+    
+  ```javascript
+     const mfi = require('trading-indicator').mfi
+     console.log(await mfi(14, "binance", "BTC/USDT", "15m", true))
+   ```
+
   
   - OBV
     - Parameters:
