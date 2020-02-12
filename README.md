@@ -1,7 +1,7 @@
 # trading-indicator
 
 provide trading technical indicator values
-
+https://www.npmjs.com/package/trading-indicator
 
 ## Installation
 Node.js version 10 or later is required
