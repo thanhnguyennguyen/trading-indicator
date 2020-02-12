@@ -1,6 +1,7 @@
 const bb = require('./indicators/bollinger_band.js')
 const ema = require('./indicators/ema.js')
 const macd = require('./indicators/macd.js')
+const mfi = require('./indicators/mfi.js')
 const obv = require('./indicators/obv.js')
 const rsi = require('./indicators/rsi.js')
 const sma = require('./indicators/sma.js')
@@ -10,6 +11,7 @@ module.exports = {
     bb: bb,
     ema: ema,
     macd: macd,
+    mfi: mfi,
     obv: obv,
     rsi: rsi,
     sma: sma,
