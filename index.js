@@ -12,7 +12,7 @@ const wma = require('./indicators/wma.js')
 module.exports = {
     bb: bb,
     ema: ema,
-ichimokuCloud: ichimokuCloud,
+    ichimokuCloud: ichimokuCloud,
     macd: macd,
     mfi: mfi,
     obv: obv,
