@@ -39,6 +39,21 @@ npm install --save trading-indicator
     console.log(emaData[emaData.length - 1])
   ```
   
+  
+  - IchimokuCloud
+    - Parameters:
+      - conversionPeriod: integer
+      - basePeriod: integer
+      - spanPeriod: integer
+      - displacement: integer
+      - Exchange
+      - Ticker
+      - Interval
+      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+  ```javascript
+    const ichimokuCloud = require('trading-indicator').ichimokuCloud
+    console.log(await ichimokuCloud(9, 26, 52, 26, 'binance', 'BTC/USDT', '1h', false))
+  ```
     
   - MACD (Moving Average Convergence Divergence)
     - Parameters:
@@ -51,9 +66,8 @@ npm install --save trading-indicator
       - Interval
       - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
   ```javascript
-      const macd = require('trading-indicator').macd
-      let macdData = await macd(12, 26, 9, "close", "binance", "BTC/USDT", "15m", true)
-      console.log(macdData[macdData.length - 2])
+      const ichimokuCloud = require('trading-indicator').ichimokuCloud
+      console.log(await ichimokuCloud(9, 26, 52, 26, 'binance', 'BTC/USDT', '1h', false))
   ```
 
   - MFI
