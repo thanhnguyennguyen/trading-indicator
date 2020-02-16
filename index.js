@@ -1,5 +1,6 @@
 const bb = require('./indicators/bollinger_band.js')
 const ema = require('./indicators/ema.js')
+const ichimokuCloud = require('./indicators/ichimoku.js')
 const macd = require('./indicators/macd.js')
 const mfi = require('./indicators/mfi.js')
 const obv = require('./indicators/obv.js')
@@ -11,6 +12,7 @@ const wma = require('./indicators/wma.js')
 module.exports = {
     bb: bb,
     ema: ema,
+ichimokuCloud: ichimokuCloud,
     macd: macd,
     mfi: mfi,
     obv: obv,
@@ -39,4 +41,8 @@ module.exports = {
 //    console.log("Stochastic RSI example")
 //    console.log(await stochasticrsi(3,3,14,14,'close', 'binance', 'BTC/USDT', '1h', false))
 // 
+
+//    console.log("IchimokuCloud  example")
+//    console.log(await ichimokuCloud(9, 26, 52, 26, 'binance', 'BTC/USDT', '1h', false))
+//}
 // main()
