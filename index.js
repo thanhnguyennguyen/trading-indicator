@@ -5,6 +5,7 @@ const mfi = require('./indicators/mfi.js')
 const obv = require('./indicators/obv.js')
 const rsi = require('./indicators/rsi.js')
 const sma = require('./indicators/sma.js')
+const stochasticRSI = require('./indicators/stochasticrsi.js')
 const ticker = require('./indicators/ticker.js')
 const wma = require('./indicators/wma.js')
 module.exports = {
@@ -15,6 +16,7 @@ module.exports = {
     obv: obv,
     rsi: rsi,
     sma: sma,
+    stochasticRSI: stochasticRSI,
     ticker: ticker,
     wma: wma,
 }
@@ -33,5 +35,8 @@ module.exports = {
 //    console.log("MACD 12 26 9 on Binance BTC/USDT 15m")
 //    let macdData = await macd(12, 26, 9, "close", "binance", "BTC/USDT", "15m", true)
 //    console.log(macdData[macdData.length - 2])
+
+//    console.log("Stochastic RSI example")
+//    console.log(await stochasticrsi(3,3,14,14,'close', 'binance', 'BTC/USDT', '1h', false))
 // 
 // main()
