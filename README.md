@@ -111,6 +111,23 @@ npm install --save trading-indicator
     console.log(smaData[smaData.length - 1])
   ```
   
+  - Stochastic RSI
+    - Parameters:
+      - kPeriod: integer
+      - dPeriod: integer
+      - rsiPeriod: integer
+      - stochasticPeriod: integer
+      - Input source: "open" |  "high" | "low" | "close"
+      - Exchange
+      - Ticker
+      - Interval
+      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+    
+  ```javascript
+     const stochasticRSI = require('trading-indicator').stochasticRSI
+     console.log(await stochasticRSI(3, 3, 14, 14, "close", "binance", "BTC/USDT", "15m", true))
+   ```
+
   - WMA (Weighted Moving Average)
     - Parameters:
       - MA period: integer
