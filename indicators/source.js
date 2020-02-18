@@ -11,6 +11,9 @@ const detachSource = (ohlcv) => {
     source["low"] = []
     source["close"] = []
     source["volume"] = []
+    if (ohlcv.length == 0) {
+        return source
+    }
     ohlcv.forEach(data => {
         source["open"].push(data[oIndex])
         source["high"].push(data[hIndex])
