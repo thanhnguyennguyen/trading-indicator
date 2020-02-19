@@ -1,20 +1,23 @@
 const ccxt = require("ccxt")
 const fetchTicker = async (ex, ticker, isFuture = false) => {
+    try {
+        let exchangeId = ex,
+            exchangeClass = ccxt[exchangeId]
 
-    let exchangeId = ex,
-        exchangeClass = ccxt[exchangeId]
+        let exchange
+        if (isFuture) {
 
-    let exchange
-    if (isFuture) {
-
-        exchange = new exchangeClass({
-            options: {
-                defaultMarket: 'future'
-            }
-        })
-    } else {
-        exchange = new exchangeClass({})
+            exchange = new exchangeClass({
+                options: {
+                    defaultMarket: 'future'
+                }
+            })
+        } else {
+            exchange = new exchangeClass({})
+        }
+        return await exchange.fetchTicker(ticker)
+    } catch (err) {
+        throw ('Ticker is not supported')
     }
-    return await exchange.fetchTicker(ticker)
 }
 module.exports = fetchTicker

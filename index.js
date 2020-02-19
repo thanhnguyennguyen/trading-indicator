@@ -23,7 +23,7 @@ module.exports = {
     wma: wma,
 }
 // const main = async () => {
-//    console.log("RSI 14 on Binance BTC/USDT 15m")
+//   try { console.log("RSI 14 on Binance BTC/USDT 15m")
 //    console.log(await rsi(14, "close", "binance", "BTC/USDT", "15m", true))
 // 
 //    console.log("SMA 8 on Binance BTC/USDT 15m")
@@ -37,12 +37,16 @@ module.exports = {
 //    console.log("MACD 12 26 9 on Binance BTC/USDT 15m")
 //    let macdData = await macd(12, 26, 9, "close", "binance", "BTC/USDT", "15m", true)
 //    console.log(macdData[macdData.length - 2])
-
+//
 //    console.log("Stochastic RSI example")
-//    console.log(await stochasticrsi(3,3,14,14,'close', 'binance', 'BTC/USDT', '1h', false))
+//    console.log(await stochasticRSI(3,3,14,14,'close', 'binance', 'BTC/USDT', '1h', false))
 // 
-
+//
 //    console.log("IchimokuCloud  example")
 //    console.log(await ichimokuCloud(9, 26, 52, 26, 'binance', 'BTC/USDT', '1h', false))
+//}catch (err) {
+//console.log(err)
+//}
+//
 //}
 // main()
