@@ -1,6 +1,6 @@
 # trading-indicator
 
-provide trading technical indicator values
+provide trading technical indicator values based on market data of almost crypto currency exchanges
 https://www.npmjs.com/package/trading-indicator
 
 ## Installation
