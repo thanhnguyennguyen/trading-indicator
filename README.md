@@ -13,7 +13,7 @@ npm install --save trading-indicator
   - BB (Bollinger bands)
     - Parameters:
       - Bollinger bands period: integer
-      - sdtDev : integer
+      - stdDev : integer
       - Input source: "open" |  "high" | "low" | "close"
       - Exchange
       - Ticker
