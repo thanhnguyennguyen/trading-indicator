@@ -9,7 +9,7 @@ const sma = require('./indicators/sma.js')
 const stochasticRSI = require('./indicators/stochasticrsi.js')
 const ticker = require('./indicators/ticker.js')
 const wma = require('./indicators/wma.js')
-const alerts = require('./alerts/ma_cross.js')
+const alerts = require('./alerts/index.js')
 module.exports = {
     alerts: alerts,
     bb: bb,
