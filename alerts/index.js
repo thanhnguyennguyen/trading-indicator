@@ -1,4 +1,4 @@
-const maCross = require('./ma_cross.js')
 module.exports = {
-    ...maCross
+    ...require('./ma_cross.js'),
+    ...require('./rsi.js')
 }
