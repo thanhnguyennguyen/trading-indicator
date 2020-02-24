@@ -40,7 +40,14 @@ const deathCross = async (MA_FAST, MA_SLOW, symbol, interval, exchange, isFuture
     return crossunder(maFastVal, maSlowVal)
 }
 
+const maCross = async (MA_FAST, MA_SLOW, symbol, interval, exchange, isFuture = false) => {
+    return {
+        goldenCross: await goldenCross(MA_FAST, MA_SLOW, symbol, interval, exchange, isFuture),
+        deathCross: await deathCross(MA_FAST, MA_SLOW, symbol, interval, exchange, isFuture),
+    }
+}
 module.exports = {
+    maCross: maCross,
     goldenCross: goldenCross,
     deathCross: deathCross,
 }
