@@ -190,13 +190,30 @@ npm install --save trading-indicator
 }
 ```
 
-  ## Supported exchanges
+## Available Alerts
+  - Golden cross / Death cross
+    - Parameter:
+      - MA_FAST (should be 50)
+      - MA_SLOW (should be 200)
+      - Symbol
+      - Interval
+      - Exchange name
+      - IsFuture exchange
+      
+      Sample code
+      ```javascript
+        await alerts.goldenCross(50, 200, 'BTC/USDT', '1h', 'binance', false) 
+        await alerts.deathCross(50, 200, 'BTC/USDT', '1h', 'binance', false) 
+      ```
+
+
+## Supported exchanges
   
   - https://github.com/ccxt/ccxt#certified-cryptocurrency-exchanges
   
   - https://github.com/ccxt/ccxt#supported-cryptocurrency-exchange-markets
   
-  ## Supported interval
+## Supported interval
   - 1m : 1 minute
   - 5m: 5 minutes
   - 15m: 15 minutes
