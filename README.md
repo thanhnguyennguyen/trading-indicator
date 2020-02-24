@@ -205,8 +205,8 @@ npm install --save trading-indicator
         await alerts.goldenCross(50, 200, 'BTC/USDT', '1h', 'binance', false) 
         await alerts.deathCross(50, 200, 'BTC/USDT', '1h', 'binance', false) 
         
-        # check both golden/death cross
-        await alerts.maCross(50, 200, 'BTC/USDT', '1h', 'binance', false) # response  { goldenCross: false, deathCross: false }
+        // check both golden/death cross
+        await alerts.maCross(50, 200, 'BTC/USDT', '1h', 'binance', false) // response  { goldenCross: false, deathCross: false }
       ```
 
 
