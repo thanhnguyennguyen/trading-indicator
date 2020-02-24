@@ -9,7 +9,9 @@ const sma = require('./indicators/sma.js')
 const stochasticRSI = require('./indicators/stochasticrsi.js')
 const ticker = require('./indicators/ticker.js')
 const wma = require('./indicators/wma.js')
+const alerts = require('./alerts/ma_cross.js')
 module.exports = {
+    alerts: alerts,
     bb: bb,
     ema: ema,
     ichimokuCloud: ichimokuCloud,
@@ -44,6 +46,9 @@ module.exports = {
 //
 //    console.log("IchimokuCloud  example")
 //    console.log(await ichimokuCloud(9, 26, 52, 26, 'binance', 'BTC/USDT', '1h', false))
+//
+//	   console.log("Test golden cross")
+//	   console.log(await alerts.goldenCross(50, 200, 'BTC/USDT', '1h', 'binance', false))
 //}catch (err) {
 //console.log(err)
 //}
