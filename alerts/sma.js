@@ -1,5 +1,9 @@
 const sma = require('../indicators/sma.js')
-const {crossover, crossunder} = require('../utils/cross.js')
+const getOHLCV = require('../indicators/ohlcv.js')
+const {
+    crossover,
+    crossunder
+} = require('../utils/cross.js')
 const calculateMA = async (MA_FAST, MA_SLOW, symbol, interval, exchange, isFuture) => {
     try {
         let MA_FAST_VAL = await sma(parseInt(MA_FAST), "close", exchange, symbol, interval, isFuture)
@@ -41,8 +45,22 @@ const maCross = async (MA_FAST, MA_SLOW, symbol, interval, exchange, isFuture = 
         deathCross: await deathCross(MA_FAST, MA_SLOW, symbol, interval, exchange, isFuture),
     }
 }
+
+const priceCrossSMA = async (period, symbol, interval, exchange, isFuture = false) => {
+    let maVal = await sma(parseInt(period), "close", exchange, symbol, interval, isFuture),
+        ohlcv = await getOHLCV(exchange, symbol, interval, isFuture),
+        price = [ohlcv[1][3], ohlcv[0][3]],
+        up = crossover(price, maVal),
+        down = crossunder(price, maVal)
+    return {
+        "cross": up || down,
+        "direction": up ? "up" : (down ? "down" : "none"),
+    }
+}
+
 module.exports = {
     maCross: maCross,
     goldenCross: goldenCross,
     deathCross: deathCross,
+    priceCrossSMA: priceCrossSMA,
 }

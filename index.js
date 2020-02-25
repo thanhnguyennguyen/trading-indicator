@@ -53,6 +53,12 @@ module.exports = {
 //
 //	console.log("Test RSIcheck")
 //        console.log(await alerts.rsiCheck(14, 75, 25, 'BTC/USDT', '1h', 'binance', false))
+//
+//	console.log("Test SMA cross")
+//	console.log(await alerts.priceCrossSMA(14, 'BTC/USDT', '1h', 'binance', false))
+//
+//        console.log("Test EMA cross")
+//        console.log(await alerts.priceCrossEMA(14, 'BTC/USDT', '1h', 'binance', false))
 //    } catch (err) {
 //        console.log(err)
 //    }
