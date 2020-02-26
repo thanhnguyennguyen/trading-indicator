@@ -202,6 +202,8 @@ npm install --save trading-indicator
       
       Sample code
       ```javascript
+        alerts = require('trading-indicator').alerts
+        
         await alerts.goldenCross(50, 200, 'BTC/USDT', '1h', 'binance', false) 
         await alerts.deathCross(50, 200, 'BTC/USDT', '1h', 'binance', false) 
         
@@ -209,7 +211,47 @@ npm install --save trading-indicator
         await alerts.maCross(50, 200, 'BTC/USDT', '1h', 'binance', false) // response  { goldenCross: false, deathCross: false }
       ```
 
+  - RSI in overBought/overSold area
+    - Parameter:
+      - RSI Period
+      - OverBoughtThreshold (75)
+      - OverSoldThreshold (25)
+      - Symbol
+      - Interval
+      - Exchange name
+      - IsFuture exchange
+      
+      Sample code
+      ```javascript
+        alerts = require('trading-indicator').alerts
+              
+        await alerts.rsiCheck(14, 75, 25, 'BTC/USDT', '1h', 'binance', false) 
+        // Test RSIcheck
+        // { overBought: false, overSold: false, rsiVal: 27.81 }
+      ```
+      
+  - Price crosses SMA/EMA
+    - Parameter:
+      - MA Period
+      - Symbol
+      - Interval
+      - Exchange name
+      - IsFuture exchange
+      
+      Sample code
+      ```javascript
+        alerts = require('trading-indicator').alerts
+      
+        await alerts.priceCrossSMA(14, 'BTC/USDT', '1h', 'binance', false) 
+        //Test SMA cross
+        // { cross: true, direction: 'up' }
 
+
+        await alerts.priceCrossEMA(14, 'BTC/USDT', '1h', 'binance', false) 
+        // Test EMA cross
+        // { cross: true, direction: 'down' }
+        
+      ```
 ## Supported exchanges
   
   - https://github.com/ccxt/ccxt#certified-cryptocurrency-exchanges
