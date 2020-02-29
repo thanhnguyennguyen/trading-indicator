@@ -24,6 +24,8 @@ module.exports = {
     ticker: ticker,
     wma: wma,
 }
+
+// examples for testing
 const main = async () => {
     try {
         console.log("RSI 14 on Binance BTC/USDT 15m")
@@ -49,19 +51,23 @@ const main = async () => {
         console.log(await ichimokuCloud(9, 26, 52, 26, 'binance', 'BTC/USDT', '1h', false))
 
         console.log("Test golden cross")
-        console.log(await alerts.goldenCross(50, 200, 'BTC/USDT', '1h', 'binance', false))
+        console.log(await alerts.goldenCross(50, 200, 'binance', 'BTC/USDT', '1h', false))
 
 	console.log("Test MA cross")
-        console.log(await alerts.maCross(50, 200, 'BTC/USDT', '1h', 'binance', false))
+        console.log(await alerts.maCross(50, 200, 'binance', 'BTC/USDT', '1h', false))
 
 	console.log("Test RSIcheck")
-        console.log(await alerts.rsiCheck(14, 75, 25, 'BTC/USDT', '1h', 'binance', false))
+        console.log(await alerts.rsiCheck(14, 75, 25, 'binance', 'BTC/USDT', '1h', false))
 
 	console.log("Test SMA cross")
-	console.log(await alerts.priceCrossSMA(14, 'BTC/USDT', '1h', 'binance', false))
+	console.log(await alerts.priceCrossSMA(14, 'binance', 'BTC/USDT', '1h', false))
 
         console.log("Test EMA cross")
-        console.log(await alerts.priceCrossEMA(14, 'BTC/USDT', '1h', 'binance', false))
+        console.log(await alerts.priceCrossEMA(14, 'binance', 'BTC/USDT', '1h', false))
+
+        console.log("Test break out BB")
+        console.log(await alerts.bbCheck(50, 2, 'binance', 'BTC/USDT', '1h', false))
+
     } catch (err) {
         console.log(err)
     }

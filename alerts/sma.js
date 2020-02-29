@@ -4,7 +4,7 @@ const {
     crossover,
     crossunder
 } = require('../utils/cross.js')
-const calculateMA = async (MA_FAST, MA_SLOW, symbol, interval, exchange, isFuture) => {
+const calculateMA = async (MA_FAST, MA_SLOW, exchange, symbol, interval, isFuture) => {
     try {
         let MA_FAST_VAL = await sma(parseInt(MA_FAST), "close", exchange, symbol, interval, isFuture)
         let MA_SLOW_VAL = await sma(parseInt(MA_SLOW), "close", exchange, symbol, interval, isFuture)
@@ -19,9 +19,9 @@ const calculateMA = async (MA_FAST, MA_SLOW, symbol, interval, exchange, isFutur
 }
 
 let maFastVal, maSlowVal
-const goldenCross = async (MA_FAST, MA_SLOW, symbol, interval, exchange, isFuture = false) => {
+const goldenCross = async (MA_FAST, MA_SLOW, exchange, symbol, interval, isFuture = false) => {
     if (maFastVal == undefined || maSlowVal == undefined) {
-        let maVal = await calculateMA(MA_FAST, MA_SLOW, symbol, interval, exchange, isFuture)
+        let maVal = await calculateMA(MA_FAST, MA_SLOW, exchange, symbol, interval, isFuture)
         maFastVal = maVal.fast
         maSlowVal = maVal.slow
     }
@@ -29,9 +29,9 @@ const goldenCross = async (MA_FAST, MA_SLOW, symbol, interval, exchange, isFutur
     return crossover(maFastVal, maSlowVal)
 }
 
-const deathCross = async (MA_FAST, MA_SLOW, symbol, interval, exchange, isFuture = false) => {
+const deathCross = async (MA_FAST, MA_SLOW, exchange, symbol, interval, isFuture = false) => {
     if (maFastVal == undefined || maSlowVal == undefined) {
-        let maVal = await calculateMA(MA_FAST, MA_SLOW, symbol, interval, exchange, isFuture)
+        let maVal = await calculateMA(MA_FAST, MA_SLOW, exchange, symbol, interval, isFuture)
         maFastVal = maVal.fast
         maSlowVal = maVal.slow
     }
@@ -39,14 +39,14 @@ const deathCross = async (MA_FAST, MA_SLOW, symbol, interval, exchange, isFuture
     return crossunder(maFastVal, maSlowVal)
 }
 
-const maCross = async (MA_FAST, MA_SLOW, symbol, interval, exchange, isFuture = false) => {
+const maCross = async (MA_FAST, MA_SLOW, exchange, symbol, interval, isFuture = false) => {
     return {
-        goldenCross: await goldenCross(MA_FAST, MA_SLOW, symbol, interval, exchange, isFuture),
-        deathCross: await deathCross(MA_FAST, MA_SLOW, symbol, interval, exchange, isFuture),
+        goldenCross: await goldenCross(MA_FAST, MA_SLOW, exchange, symbol, interval, isFuture),
+        deathCross: await deathCross(MA_FAST, MA_SLOW, exchange, symbol, interval, isFuture),
     }
 }
 
-const priceCrossSMA = async (period, symbol, interval, exchange, isFuture = false) => {
+const priceCrossSMA = async (period, exchange, symbol, interval, isFuture = false) => {
     let maVal = await sma(parseInt(period), "close", exchange, symbol, interval, isFuture),
         ohlcv = await getOHLCV(exchange, symbol, interval, isFuture),
         price = [ohlcv[1][3], ohlcv[0][3]],

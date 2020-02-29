@@ -5,7 +5,7 @@ const {
     crossunder
 } = require('../utils/cross.js')
 
-const priceCrossEMA = async (period, symbol, interval, exchange, isFuture = false) => {
+const priceCrossEMA = async (period, exchange, symbol, interval, isFuture = false) => {
     let maVal = await ema(parseInt(period), "close", exchange, symbol, interval, isFuture),
         ohlcv = await getOHLCV(exchange, symbol, interval, isFuture),
         price = [ohlcv[1][3], ohlcv[0][3]],
