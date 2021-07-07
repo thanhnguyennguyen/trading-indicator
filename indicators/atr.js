@@ -18,5 +18,5 @@ const atr = async (period, ex, ticker, interval, isFuture = false) => {
     }
 }
 module.exports = {
-    sma
+    atr
 }

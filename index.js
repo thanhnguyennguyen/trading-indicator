@@ -12,7 +12,7 @@ module.exports = {
     ...require('./indicators/ticker.js'),
     ...require('./indicators/wma.js'),
     ...require('./alerts/index.js'),
-    ...require('./alerts/atr.js'),
+    ...require('./indicators/atr.js'),
 }
 
 // examples for testing
