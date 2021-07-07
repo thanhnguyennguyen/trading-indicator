@@ -15,4 +15,6 @@ const obv = async (ex, ticker, interval, isFuture = false) => {
         throw (err)
     }
 }
-module.exports = obv
+module.exports = {
+    obv
+}

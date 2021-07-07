@@ -15,4 +15,6 @@ const sma = async (smaLength, sourceType, ex, ticker, interval, isFuture = false
         throw (err)
     }
 }
-module.exports = sma
+module.exports = {
+    sma
+}

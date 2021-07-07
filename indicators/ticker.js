@@ -1,5 +1,5 @@
 const ccxt = require("ccxt")
-const fetchTicker = async (ex, ticker, isFuture = false) => {
+const ticker = async (ex, ticker, isFuture = false) => {
     try {
         let exchangeId = ex,
             exchangeClass = ccxt[exchangeId]
@@ -20,4 +20,6 @@ const fetchTicker = async (ex, ticker, isFuture = false) => {
         throw ('Ticker is not supported')
     }
 }
-module.exports = fetchTicker
+module.exports = {
+    ticker
+}

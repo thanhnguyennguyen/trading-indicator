@@ -15,4 +15,6 @@ const rsi = async (rsiLength, sourceType, ex, ticker, interval, isFuture = false
         throw (err)
     }
 }
-module.exports = rsi
+module.exports = {
+    rsi
+}

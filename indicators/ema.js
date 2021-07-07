@@ -15,4 +15,6 @@ const ema = async (emaLength, sourceType, ex, ticker, interval, isFuture = false
         throw (err)
     }
 }
-module.exports = ema
+module.exports = {
+    ema
+}

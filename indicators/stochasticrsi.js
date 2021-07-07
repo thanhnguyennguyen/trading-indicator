@@ -22,4 +22,6 @@ const main = async () => {
     console.log(await stochasticrsi(3, 3, 14, 14, 'close', 'binance', 'BTC/USDT', '1h', false))
 }
 // main()
-module.exports = stochasticrsi
+module.exports = {
+    stochasticrsi
+}

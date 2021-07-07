@@ -23,4 +23,6 @@ const main = async () => {
     console.log(await ichimokuCloud(9, 26, 52, 26, 'binance', 'BTC/USDT', '1h', false))
 }
 // main()
-module.exports = ichimokuCloud
+module.exports = {
+    ichimokuCloud
+}

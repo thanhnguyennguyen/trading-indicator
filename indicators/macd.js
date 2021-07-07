@@ -20,4 +20,6 @@ const macd = async (fastPeriod, slowPeriod, signalPeriod, sourceType, ex, ticker
         throw (err)
     }
 }
-module.exports = macd
+module.exports = {
+    macd
+}

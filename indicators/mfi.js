@@ -18,4 +18,6 @@ const mfi = async (mfiPeriod, ex, ticker, interval, isFuture = false) => {
         throw (err)
     }
 }
-module.exports = mfi
+module.exports = {
+    mfi
+}

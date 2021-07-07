@@ -15,4 +15,6 @@ const wma = async (wmaLength, sourceType, ex, ticker, interval, isFuture = false
         throw (err)
     }
 }
-module.exports = wma
+module.exports = {
+    wma
+}
