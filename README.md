@@ -45,7 +45,7 @@ npm install --save trading-indicator
 ```
 
 ## Available Indicators
-Bollinger bands , EMA, IchimokuCloud, MACD, MFI, OBV, RSI, SMA, Stochastic RSI, WMA
+[Bollinger bands](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#bb-bollinger-bands) , [EMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#ema-exponential-moving-average), [IchimokuCloud](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#ichimokucloud), [MACD](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#macd-moving-average-convergence-divergence), [MFI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#mfi), [OBV](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#obv), [RSI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#rsi), [SMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#sma-simple-moving-average), [Stochastic RSI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#stochastic-rsi), [WMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#wma-weighted-moving-average)
 
   ### BB (Bollinger bands)
 
@@ -198,7 +198,7 @@ Bollinger bands , EMA, IchimokuCloud, MACD, MFI, OBV, RSI, SMA, Stochastic RSI, 
 
 ## Available Alerts
 
-Golden cross / Death cross , RSI in overBought/overSold , Price crosses SMA/EMA
+[Golden cross / Death cross](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#golden-cross--death-cross) , [RSI in overBought/overSold](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#rsi-in-overboughtoversold-area) , [Price crosses SMA/EMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#price-crosses-smaema)
 
  ### Golden cross / Death cross
   - Parameter:
