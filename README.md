@@ -4,6 +4,11 @@
 provide trading technical indicator values based on market data of almost crypto currency exchanges
 https://www.npmjs.com/package/trading-indicator
 
+
+
+[☕ Give me a coffee  :heart:](https://bscscan.com/address/0x9059f758e2d7ab314407cf6ae821b024e538c792) 
+
+
 ## Installation
 Node.js version 10 or later is required
 ```bash
@@ -51,7 +56,6 @@ npm install --save trading-indicator
 
 [Golden cross / Death cross](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#golden-cross--death-cross) , [RSI in overBought/overSold](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#rsi-in-overboughtoversold-area) , [Price crosses SMA/EMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#price-crosses-smaema)
 
-      ```
 ## Supported exchanges
   
   - https://github.com/ccxt/ccxt#certified-cryptocurrency-exchanges
@@ -286,6 +290,3 @@ npm install --save trading-indicator
 - [![ccxt](https://camo.githubusercontent.com/509b94aa541a5c3b461d1a84469f4b3d4112af57/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f434358542d6365727469666965642d677265656e2e7376673f73616e6974697a653d74727565)](https://github.com/ccxt/ccxt)
 - [technicalindicators](https://github.com/anandanand84/technicalindicators)
 
-
-
-[:heart: Sponsor :heart:](https://bscscan.com/address/0x9059f758e2d7ab314407cf6ae821b024e538c792) 

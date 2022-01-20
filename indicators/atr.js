@@ -10,7 +10,7 @@ const atr = async (period, ex, ticker, interval, isFuture = false) => {
             high: source["high"],
             low: source["low"],
             close: source["close"],
-            period: period.
+            period: period
         }
         return await indicators.atr.calculate(atrInput)
     } catch (err) {
