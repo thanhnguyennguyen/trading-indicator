@@ -3,7 +3,7 @@ module.exports = {
     ...require('./indicators/bollinger_band.js'),
     ...require('./indicators/ema.js'),
     ...require('./indicators/ichimoku.js'),
-    ...equire('./indicators/macd.js'),
+    ...require('./indicators/macd.js'),
     ...require('./indicators/mfi.js'),
     ...require('./indicators/obv.js'),
     ...require('./indicators/rsi.js'),

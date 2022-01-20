@@ -67,8 +67,8 @@ npm install --save trading-indicator
       - Interval
       - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
   ```javascript
-      const ichimokuCloud = require('trading-indicator').ichimokuCloud
-      console.log(await ichimokuCloud(9, 26, 52, 26, 'binance', 'BTC/USDT', '1h', false))
+      const macd = require('trading-indicator').macd
+      console.log(await macd(12, 26, 9, "close", "binance", "BTC/USDT", "15m", true))
   ```
 
   - MFI
