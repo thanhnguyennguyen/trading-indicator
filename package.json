@@ -1,6 +1,6 @@
 {
     "name": "trading-indicator",
-    "version": "1.0.6",
+    "version": "1.0.7",
     "description": "provide trading technical indicator values",
     "main": "index.js",
     "scripts": {
