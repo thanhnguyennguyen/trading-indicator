@@ -12,6 +12,7 @@ module.exports = {
   ...require("./indicators/wma.js"),
   ...require("./alerts/index.js"),
   ...require("./indicators/atr.js"),
+  ...require("./indicators/adx.js"),
 };
 
 // console.log(module);
