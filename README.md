@@ -50,7 +50,7 @@ npm install --save trading-indicator
 ```
 
 ## Available Indicators
-[Bollinger bands](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#bb-bollinger-bands) , [EMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#ema-exponential-moving-average), [IchimokuCloud](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#ichimokucloud), [MACD](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#macd-moving-average-convergence-divergence), [MFI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#mfi), [OBV](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#obv), [RSI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#rsi), [SMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#sma-simple-moving-average), [Stochastic RSI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#stochastic-rsi), [WMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#wma-weighted-moving-average)
+[ADX](https://github.com/thanhnguyennguyen/trading-indicator#adx-average-directional-index), [ATR](https://github.com/thanhnguyennguyen/trading-indicator#atr-average-true-range), [Bollinger bands](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#bb-bollinger-bands) , [EMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#ema-exponential-moving-average), [IchimokuCloud](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#ichimokucloud), [MACD](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#macd-moving-average-convergence-divergence), [MFI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#mfi), [OBV](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#obv), [RSI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#rsi), [SMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#sma-simple-moving-average), [Stochastic RSI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#stochastic-rsi), [WMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#wma-weighted-moving-average)
 
 ## Available Alerts
 
@@ -77,6 +77,36 @@ npm install --save trading-indicator
 
 
 ## Sample code
+
+ ### ATR (Average True Range)
+  - Parameters:
+      - Period: integer
+      - Input source: "open" |  "high" | "low" | "close"
+      - Exchange
+      - Ticker
+      - Interval
+      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+  ```javascript
+    const atr = require('trading-indicator').atr
+    let atrData = await atr(14, "close", "binance", "BTC/USDT", "15m", true)
+    console.log(atrData[atrData.length - 1])
+  ```
+
+ ### ADX (Average Directional Index)
+  - Parameters:
+      - Period: integer
+      - Input source: "open" |  "high" | "low" | "close"
+      - Exchange
+      - Ticker
+      - Interval
+      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+  ```javascript
+    const adx = require('trading-indicator').adx
+    let adxData = await atr(14, "close", "binance", "BTC/USDT", "15m", true)
+    console.log(adxData[adxData.length - 1])
+  ```
+
+
 
   ### BB (Bollinger bands)
 
