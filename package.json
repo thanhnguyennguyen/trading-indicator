@@ -5,7 +5,9 @@
     "main": "index.js",
     "scripts": {
         "start": "echo example to fetch data from binance && node index.js",
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "lint": "eslint ./ --ext .js",
+        "lint-fix": "eslint ./ --ext .js --fix",
+        "test": "jest"
     },
     "repository": {
         "type": "git",
@@ -16,7 +18,21 @@
         "indicators",
         "technicalindicators",
         "nguyennguyen",
-        "ccxt", "exchange", "cryptocurrency", "binance", "bitstamp", "coinbase", "bittrex", "houbipro", "kraken", "binanceus", "bitforex", "bitfinex", "bitmex", "gemini", "okex"
+        "ccxt",
+        "exchange",
+        "cryptocurrency",
+        "binance",
+        "bitstamp",
+        "coinbase",
+        "bittrex",
+        "houbipro",
+        "kraken",
+        "binanceus",
+        "bitforex",
+        "bitfinex",
+        "bitmex",
+        "gemini",
+        "okex"
     ],
     "author": "NguyenNguyen (nguyenbk92@gmail.com)",
     "license": "ISC",
@@ -27,5 +43,13 @@
     "dependencies": {
         "ccxt": "^1.22.7",
         "technicalindicators": "^3.0.0"
+    },
+    "devDependencies": {
+        "eslint": "^7.13.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "jest": "^26.6.3",
+        "prettier": "^2.6.2",
+        "prettier-eslint": "^6.2.0"
     }
 }

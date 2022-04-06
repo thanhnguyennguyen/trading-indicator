@@ -1,24 +1,11 @@
-const { rsi } = require("../indicators/rsi.js");
-const calculateRSIValue = async (
-  period,
-  exchange,
-  symbol,
-  interval,
-  isFuture,
-) => {
+const { rsi } = require('../indicators/rsi.js')
+const calculateRSIValue = async (period, exchange, symbol, interval, isFuture) => {
   try {
-    return await rsi(
-      parseInt(period),
-      "close",
-      exchange,
-      symbol,
-      interval,
-      isFuture,
-    );
+    return await rsi(parseInt(period), 'close', exchange, symbol, interval, isFuture)
   } catch (err) {
-    throw (err);
+    throw err
   }
-};
+}
 const rsiCheck = async (
   period,
   overBoughtThreshold,
@@ -26,24 +13,17 @@ const rsiCheck = async (
   exchange,
   symbol,
   interval,
-  isFuture = false,
+  isFuture = false
 ) => {
-  let rsiVals = await calculateRSIValue(
-      period,
-      exchange,
-      symbol,
-      interval,
-      isFuture,
-    ),
-    rsiVal = rsiVals[rsiVals.length - 1];
+  let rsiVals = await calculateRSIValue(period, exchange, symbol, interval, isFuture),
+    rsiVal = rsiVals[rsiVals.length - 1]
   return {
     overBought: rsiVal >= overBoughtThreshold,
     overSold: rsiVal <= overSoldThreshold,
     rsiVal: rsiVal,
-  };
-};
+  }
+}
 
 module.exports = {
   rsiCheck: rsiCheck,
-};
-
+}
