@@ -10,7 +10,8 @@ const obv = async (ex, ticker, interval, isFuture = false) => {
       close: source['close'],
       volume: source['volume'],
     }
-    return await indicators.OBV.calculate(obvInput)
+    const data = indicators.OBV.calculate(obvInput)
+    return { ...data, ohlcv : ohlcv}
   } catch (err) {
     throw err
   }

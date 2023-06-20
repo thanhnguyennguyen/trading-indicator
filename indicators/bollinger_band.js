@@ -11,7 +11,8 @@ const bb = async (bbLength, stdDev, sourceType, ex, ticker, interval, isFuture =
       period: bbLength,
       stdDev: stdDev,
     }
-    return await indicators.BollingerBands.calculate(input)
+    const data = indicators.BollingerBands.calculate(input)
+    return { ...data, ohlcv : ohlcv}
   } catch (err) {
     throw err
   }

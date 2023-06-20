@@ -14,7 +14,8 @@ const macd = async (fastPeriod, slowPeriod, signalPeriod, sourceType, ex, ticker
       SimpleMAOscillator: false,
       SimpleMASignal: false,
     }
-    return await indicators.MACD.calculate(input)
+    const data = indicators.MACD.calculate(input)
+    return { ...data, ohlcv : ohlcv}
   } catch (err) {
     throw err
   }

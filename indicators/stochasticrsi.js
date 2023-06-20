@@ -23,7 +23,8 @@ const stochasticrsi = async (
       stochasticPeriod: stochasticrsiLength,
       rsiPeriod: rsiLength,
     }
-    return await indicators.StochasticRSI.calculate(stochasticrsiInput)
+    const data = indicators.StochasticRSI.calculate(stochasticrsiInput)
+    return { ...data, ohlcv : ohlcv}
   } catch (err) {
     throw err
   }

@@ -10,7 +10,8 @@ const ema = async (emaLength, sourceType, ex, ticker, interval, isFuture = false
       values: source[sourceType],
       period: emaLength,
     }
-    return await indicators.EMA.calculate(emaInput)
+    const data = indicators.EMA.calculate(emaInput)
+    return { ...data, ohlcv : ohlcv}
   } catch (err) {
     throw err
   }

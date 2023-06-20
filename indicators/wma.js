@@ -10,7 +10,8 @@ const wma = async (wmaLength, sourceType, ex, ticker, interval, isFuture = false
       values: source[sourceType],
       period: wmaLength,
     }
-    return await indicators.WMA.calculate(wmaInput)
+    const data = await indicators.WMA.calculate(wmaInput)
+    return { ...data, ohlcv : ohlcv}
   } catch (err) {
     throw err
   }

@@ -12,7 +12,8 @@ const atr = async (period, ex, ticker, interval, isFuture = false) => {
       close: source['close'],
       period: period,
     }
-    return await indicators.atr.calculate(atrInput)
+    const data =  await indicators.atr.calculate(atrInput)
+    return { ...data, ohlcv : ohlcv}
   } catch (err) {
     throw err
   }

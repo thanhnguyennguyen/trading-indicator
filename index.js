@@ -13,6 +13,7 @@ module.exports = {
   ...require('./alerts/index.js'),
   ...require('./indicators/atr.js'),
   ...require('./indicators/adx.js'),
+  ...require('./indicators/ohlcv.js'),
 }
 
 // console.log(module);

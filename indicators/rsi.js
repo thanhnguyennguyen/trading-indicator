@@ -10,7 +10,8 @@ const rsi = async (rsiLength, sourceType, ex, ticker, interval, isFuture = false
       values: source[sourceType],
       period: rsiLength,
     }
-    return await indicators.RSI.calculate(rsiInput)
+    const data = indicators.RSI.calculate(rsiInput)
+    return { ...data, ohlcv : ohlcv}
   } catch (err) {
     throw err
   }
