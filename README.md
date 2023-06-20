@@ -266,13 +266,13 @@ npm install --save trading-indicator
       
       Sample code
       ```javascript
-        alerts = require('trading-indicator').alerts
+        const { goldenCross, deathCross, maCross }  = require('trading-indicator')
         
-        await alerts.goldenCross(50, 200, 'binance', 'BTC/USDT', '1h', false) 
-        await alerts.deathCross(50, 200, 'binance', 'BTC/USDT', '1h', false) 
+        await goldenCross(50, 200, 'binance', 'BTC/USDT', '1h', false) 
+        await deathCross(50, 200, 'binance', 'BTC/USDT', '1h', false) 
         
         // check both golden/death cross
-        await alerts.maCross(50, 200, 'binance', 'BTC/USDT', '1h', false) // response  { goldenCross: false, deathCross: false }
+        await maCross(50, 200, 'binance', 'BTC/USDT', '1h', false) // response  { goldenCross: false, deathCross: false }
       ```
 
  ### RSI in overBought/overSold area
@@ -287,9 +287,9 @@ npm install --save trading-indicator
       
       Sample code
       ```javascript
-        alerts = require('trading-indicator').alerts
+        const { rsiCheck } = require('trading-indicator')
               
-        await alerts.rsiCheck(14, 75, 25, 'binance', 'BTC/USDT', '1h', false) 
+        await rsiCheck(14, 75, 25, 'binance', 'BTC/USDT', '1h', false) 
         // Test RSIcheck
         // { overBought: false, overSold: false, rsiVal: 27.81 }
       ```
@@ -304,14 +304,14 @@ npm install --save trading-indicator
       
       Sample code
       ```javascript
-        alerts = require('trading-indicator').alerts
+        const { priceCrossSMA, priceCrossEMA }  = require('trading-indicator')
       
-        await alerts.priceCrossSMA(14, 'binance', 'BTC/USDT', '1h', false) 
+        await priceCrossSMA(14, 'binance', 'BTC/USDT', '1h', false) 
         //Test SMA cross
         // { cross: true, direction: 'up' }
 
 
-        await alerts.priceCrossEMA(14, 'binance', 'BTC/USDT', '1h', false) 
+        await priceCrossEMA(14, 'binance', 'BTC/USDT', '1h', false) 
         // Test EMA cross
         // { cross: true, direction: 'down' }
         
