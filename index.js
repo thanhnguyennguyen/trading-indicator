@@ -33,6 +33,8 @@ module.exports = {
   ...require('./candlestick-pattern/piercing-line.js'),
   ...require('./candlestick-pattern/bullish-spinning-top.js'),
   ...require('./candlestick-pattern/bearish-spinning-top.js'),
+  ...require('./candlestick-pattern/morning-star.js'),
+  ...require('./candlestick-pattern/morning-doji-star.js'),
 }
 
 // console.log(module);
@@ -134,6 +136,13 @@ const main = async () => {
 
     console.log('Test isBearishSpinningTopPattern')
     console.log(await module.exports.isBearishSpinningTopPattern('binance', 'BTC/USDT', '1h', false))
+
+
+    console.log('Test isMorningStarPattern')
+    console.log(await module.exports.isMorningStarPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isMorningDojiStarPattern')
+    console.log(await module.exports.isMorningDojiStarPattern('binance', 'BTC/USDT', '1h', false))
 
 
   } catch (err) {
