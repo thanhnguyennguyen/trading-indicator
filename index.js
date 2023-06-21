@@ -22,6 +22,12 @@ module.exports = {
   ...require('./candlestick-pattern/downside-tasuki-gap.js'),
   ...require('./candlestick-pattern/dragon-fly-doji.js'),
   ...require('./candlestick-pattern/grave-stone-doji.js'),
+  ...require('./candlestick-pattern/bullish-harami.js'),
+  ...require('./candlestick-pattern/bearish-harami.js'),
+  ...require('./candlestick-pattern/bullish-harami-cross.js'),
+  ...require('./candlestick-pattern/bearish-harami-cross.js'),
+  ...require('./candlestick-pattern/bullish-marubozu.js'),
+  ...require('./candlestick-pattern/bearish-marubozu.js')
 }
 
 // console.log(module);
@@ -102,6 +108,12 @@ const main = async () => {
 
     console.log('Test isBearishHaramiCrossPattern')
     console.log(await module.exports.isBearishHaramiCrossPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isBullishMarubozuPattern')
+    console.log(await module.exports.isBullishMarubozuPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isBearishMarubozuPattern')
+    console.log(await module.exports.isBearishMarubozuPattern('binance', 'BTC/USDT', '1h', false))
   } catch (err) {
     console.log(err)
   }
