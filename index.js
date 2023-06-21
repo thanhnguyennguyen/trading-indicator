@@ -18,6 +18,8 @@ module.exports = {
   ...require('./candlestick-pattern/abandoned-baby.js'),
   ...require('./candlestick-pattern/bearish-engulfing.js'),
   ...require('./candlestick-pattern/bullish-engulfing.js'),
+  ...require('./candlestick-pattern/dark-cloud-cover.js'),
+  ...require('./candlestick-pattern/downside-tasuki-gap.js'),
 }
 
 // console.log(module);
@@ -74,6 +76,13 @@ const main = async () => {
 
     console.log('Test isBullishEngulfingPattern')
     console.log(await module.exports.isBullishEngulfingPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isDarkCloudCoverPattern')
+    console.log(await module.exports.isDarkCloudCoverPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isDownsideTasukiGapPattern')
+    console.log(await module.exports.isDownsideTasukiGapPattern('binance', 'BTC/USDT', '1h', false))
+
   } catch (err) {
     console.log(err)
   }
