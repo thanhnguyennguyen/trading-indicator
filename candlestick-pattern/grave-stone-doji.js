@@ -19,5 +19,5 @@ const isGraveStoneDojiPattern = async (ex, ticker, interval, isFuture = false) =
 }
 
 module.exports = {
-    isGraveStoneDojiPattern,
+  isGraveStoneDojiPattern,
 }

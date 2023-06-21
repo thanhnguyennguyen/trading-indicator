@@ -91,6 +91,17 @@ const main = async () => {
     console.log('Test isGraveStoneDojiPattern')
     console.log(await module.exports.isGraveStoneDojiPattern('binance', 'BTC/USDT', '1h', false))
 
+    console.log('Test isBullishHaramiPattern')
+    console.log(await module.exports.isBullishHaramiPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isBearishHaramiPattern')
+    console.log(await module.exports.isBearishHaramiPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isBullishHaramiCrossPattern')
+    console.log(await module.exports.isBullishHaramiCrossPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isBearishHaramiCrossPattern')
+    console.log(await module.exports.isBearishHaramiCrossPattern('binance', 'BTC/USDT', '1h', false))
   } catch (err) {
     console.log(err)
   }

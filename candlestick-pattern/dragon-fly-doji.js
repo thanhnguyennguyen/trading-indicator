@@ -19,5 +19,5 @@ const isDragonFlyDojiPattern = async (ex, ticker, interval, isFuture = false) =>
 }
 
 module.exports = {
-    isDragonFlyDojiPattern,
+  isDragonFlyDojiPattern,
 }

@@ -19,5 +19,5 @@ const isDownsideTasukiGapPattern = async (ex, ticker, interval, isFuture = false
 }
 
 module.exports = {
-    isDownsideTasukiGapPattern,
+  isDownsideTasukiGapPattern,
 }

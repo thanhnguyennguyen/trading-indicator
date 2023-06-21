@@ -1,8 +1,8 @@
-const { darkcloudcover } = require('technicalindicators')
+const { bearishharamicross } = require('technicalindicators')
 const getOHLCV = require('../indicators/ohlcv.js')
 const detachSource = require('../indicators/source.js')
 
-const isDarkCloudCoverPattern = async (ex, ticker, interval, isFuture = false) => {
+const isBearishHaramiCrossPattern = async (ex, ticker, interval, isFuture = false) => {
   try {
     let ohlcv = await getOHLCV(ex, ticker, interval, isFuture)
     let source = detachSource(ohlcv)
@@ -12,12 +12,12 @@ const isDarkCloudCoverPattern = async (ex, ticker, interval, isFuture = false) =
       low: source['low'].slice(-3, -1),
       close: source['close'].slice(-3, -1),
     }
-    return darkcloudcover(singleInput)
+    return bearishharamicross(singleInput)
   } catch (err) {
     throw err
   }
 }
 
 module.exports = {
-  isDarkCloudCoverPattern,
+  isBearishHaramiCrossPattern,
 }
