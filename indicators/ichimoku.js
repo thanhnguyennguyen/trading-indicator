@@ -23,8 +23,7 @@ const ichimokuCloud = async (
       spanPeriod: spanPeriod,
       displacement: displacement,
     }
-    const data = indicators.IchimokuCloud.calculate(ichimokuCloudInput)
-    return { ...data, ohlcv : ohlcv}
+    return await indicators.IchimokuCloud.calculate(ichimokuCloudInput)
   } catch (err) {
     throw err
   }

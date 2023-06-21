@@ -10,8 +10,7 @@ const sma = async (smaLength, sourceType, ex, ticker, interval, isFuture = false
       values: source[sourceType],
       period: smaLength,
     }
-    const data = indicators.SMA.calculate(smaInput)
-    return { ...data, ohlcv : ohlcv}
+    return await indicators.SMA.calculate(smaInput)
   } catch (err) {
     throw err
   }

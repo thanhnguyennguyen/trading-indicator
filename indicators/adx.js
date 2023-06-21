@@ -9,8 +9,8 @@ const indicators = require('technicalindicators')
 //     close
 // }
 
-const adxCalculator = (adxInput) => {
-  return indicators.ADX.calculate(adxInput)
+const adxCalculator = async (adxInput) => {
+  return await indicators.ADX.calculate(adxInput)
 }
 
 const adx = async (period, ex, ticker, interval, isFuture = false) => {
@@ -23,8 +23,7 @@ const adx = async (period, ex, ticker, interval, isFuture = false) => {
       close: source['close'],
       period: period,
     }
-    const data = adxCalculator(adxInput)
-    return { ...data, ohlcv : ohlcv}
+    return await adxCalculator(adxInput)
   } catch (err) {
     throw err
   }

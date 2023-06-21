@@ -13,8 +13,7 @@ const mfi = async (mfiPeriod, ex, ticker, interval, isFuture = false) => {
       volume: source['volume'],
       period: mfiPeriod,
     }
-    const data = indicators.MFI.calculate(mfiInput)
-    return { ...data, ohlcv : ohlcv}
+    return await indicators.MFI.calculate(mfiInput)
   } catch (err) {
     throw err
   }
