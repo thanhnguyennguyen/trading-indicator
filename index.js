@@ -27,7 +27,9 @@ module.exports = {
   ...require('./candlestick-pattern/bullish-harami-cross.js'),
   ...require('./candlestick-pattern/bearish-harami-cross.js'),
   ...require('./candlestick-pattern/bullish-marubozu.js'),
-  ...require('./candlestick-pattern/bearish-marubozu.js')
+  ...require('./candlestick-pattern/bearish-marubozu.js'),
+  ...require('./candlestick-pattern/evening-doji-star.js'),
+  ...require('./candlestick-pattern/evening-star.js'),
 }
 
 // console.log(module);
@@ -114,6 +116,12 @@ const main = async () => {
 
     console.log('Test isBearishMarubozuPattern')
     console.log(await module.exports.isBearishMarubozuPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isEveningDojiStarPattern')
+    console.log(await module.exports.isEveningDojiStarPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isEveningStarPattern')
+    console.log(await module.exports.isEveningStarPattern('binance', 'BTC/USDT', '1h', false))
   } catch (err) {
     console.log(err)
   }
