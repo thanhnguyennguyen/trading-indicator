@@ -42,6 +42,10 @@ module.exports = {
   ...require('./candlestick-pattern/bullish-inverted-hammer.js'),
   ...require('./candlestick-pattern/bearish-hammer.js'),
   ...require('./candlestick-pattern/bearish-inverted-hammer.js'),
+  ...require('./candlestick-pattern/hanging-man.js'),
+  ...require('./candlestick-pattern/shooting-star.js'),
+  ...require('./candlestick-pattern/tweezer-top.js'),
+  ...require('./candlestick-pattern/tweezer-bottom.js'),
 }
 
 // console.log(module);
@@ -170,6 +174,19 @@ const main = async () => {
 
     console.log('Test isBearishInvertedHammerPattern')
     console.log(await module.exports.isBearishInvertedHammerPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isShootingStarPattern')
+    console.log(await module.exports.isShootingStarPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isHangingManPattern')
+    console.log(await module.exports.isHangingManPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isTweezerTopPattern')
+    console.log(await module.exports.isTweezerTopPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isTweezerBottomPattern')
+    console.log(await module.exports.isTweezerBottomPattern('binance', 'BTC/USDT', '1h', false))
+
 
   } catch (err) {
     console.log(err)
