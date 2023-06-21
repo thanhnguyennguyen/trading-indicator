@@ -17,8 +17,8 @@ const rsiCheck = async (
 ) => {
   let rsiVals = await calculateRSIValue(period, exchange, symbol, interval, isFuture),
     rsiVal = rsiVals[rsiVals.length - 1]
-    console.log('RSIVals', rsiVals)
-    console.log('RSI Last', rsiVal)
+  console.log('RSIVals', rsiVals)
+  console.log('RSI Last', rsiVal)
   return {
     overBought: rsiVal >= overBoughtThreshold,
     overSold: rsiVal <= overSoldThreshold,
