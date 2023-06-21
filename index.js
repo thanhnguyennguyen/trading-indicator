@@ -37,6 +37,11 @@ module.exports = {
   ...require('./candlestick-pattern/morning-doji-star.js'),
   ...require('./candlestick-pattern/three-black-crows.js'),
   ...require('./candlestick-pattern/three-white-soldiers.js'),
+  ...require('./candlestick-pattern/hammer.js'),
+  ...require('./candlestick-pattern/bullish-hammer.js'),
+  ...require('./candlestick-pattern/bullish-inverted-hammer.js'),
+  ...require('./candlestick-pattern/bearish-hammer.js'),
+  ...require('./candlestick-pattern/bearish-inverted-hammer.js'),
 }
 
 // console.log(module);
@@ -150,6 +155,21 @@ const main = async () => {
 
     console.log('Test isThreeWhiteSoldiersPattern')
     console.log(await module.exports.isThreeWhiteSoldiersPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isHammerPattern')
+    console.log(await module.exports.isHammerPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isBullishHammerPattern')
+    console.log(await module.exports.isBullishHammerPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isBullishInvertedHammerPattern')
+    console.log(await module.exports.isBullishInvertedHammerPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isBearishHammerPattern')
+    console.log(await module.exports.isBearishHammerPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isBearishInvertedHammerPattern')
+    console.log(await module.exports.isBearishInvertedHammerPattern('binance', 'BTC/USDT', '1h', false))
 
   } catch (err) {
     console.log(err)
