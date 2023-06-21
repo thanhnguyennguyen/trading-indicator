@@ -20,6 +20,8 @@ module.exports = {
   ...require('./candlestick-pattern/bullish-engulfing.js'),
   ...require('./candlestick-pattern/dark-cloud-cover.js'),
   ...require('./candlestick-pattern/downside-tasuki-gap.js'),
+  ...require('./candlestick-pattern/dragon-fly-doji.js'),
+  ...require('./candlestick-pattern/grave-stone-doji.js'),
 }
 
 // console.log(module);
@@ -82,6 +84,12 @@ const main = async () => {
 
     console.log('Test isDownsideTasukiGapPattern')
     console.log(await module.exports.isDownsideTasukiGapPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isDragonFlyDojiPattern')
+    console.log(await module.exports.isDragonFlyDojiPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isGraveStoneDojiPattern')
+    console.log(await module.exports.isGraveStoneDojiPattern('binance', 'BTC/USDT', '1h', false))
 
   } catch (err) {
     console.log(err)

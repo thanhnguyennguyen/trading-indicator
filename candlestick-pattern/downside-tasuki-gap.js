@@ -2,7 +2,7 @@ const { downsidetasukigap } = require('technicalindicators')
 const getOHLCV = require('../indicators/ohlcv.js')
 const detachSource = require('../indicators/source.js')
 
-const isDownsideTasukiGapPatter = async (ex, ticker, interval, isFuture = false) => {
+const isDownsideTasukiGapPattern = async (ex, ticker, interval, isFuture = false) => {
   try {
     let ohlcv = await getOHLCV(ex, ticker, interval, isFuture)
     let source = detachSource(ohlcv)
@@ -19,5 +19,5 @@ const isDownsideTasukiGapPatter = async (ex, ticker, interval, isFuture = false)
 }
 
 module.exports = {
-    isDownsideTasukiGapPatter,
+    isDownsideTasukiGapPattern,
 }
