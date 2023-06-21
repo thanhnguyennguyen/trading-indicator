@@ -15,6 +15,9 @@ module.exports = {
   ...require('./indicators/adx.js'),
 
   ...require('./candlestick-pattern/doji.js'),
+  ...require('./candlestick-pattern/abandoned-baby.js'),
+  ...require('./candlestick-pattern/bearish-engulfing.js'),
+  ...require('./candlestick-pattern/bullish-engulfing.js'),
 }
 
 // console.log(module);
@@ -61,9 +64,18 @@ const main = async () => {
     console.log(await module.exports.bbCheck(50, 2, 'binance', 'BTC/USDT', '1h', false))
 
     console.log('Test isDoji')
-    console.log(await module.exports.isDoji('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isDojiPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test abandonedBaby')
+    console.log(await module.exports.isAbandonedBabyPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isBearishEngulfingPattern')
+    console.log(await module.exports.isBearishEngulfingPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isBullishEngulfingPattern')
+    console.log(await module.exports.isBullishEngulfingPattern('binance', 'BTC/USDT', '1h', false))
   } catch (err) {
     console.log(err)
   }
 }
-// main();
+// main()
