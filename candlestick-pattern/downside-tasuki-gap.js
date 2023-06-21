@@ -7,10 +7,10 @@ const isDownsideTasukiGapPattern = async (ex, ticker, interval, isFuture = false
     let ohlcv = await getOHLCV(ex, ticker, interval, isFuture)
     let source = detachSource(ohlcv)
     let singleInput = {
-      open: source['open'].slice(-3),
-      high: source['high'].slice(-3),
-      low: source['low'].slice(-3),
-      close: source['close'].slice(-3),
+      open: source['open'].slice(-4, -1),
+      high: source['high'].slice(-4, -1),
+      low: source['low'].slice(-4, -1),
+      close: source['close'].slice(-4, -1),
     }
     return downsidetasukigap(singleInput)
   } catch (err) {
