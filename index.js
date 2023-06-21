@@ -35,6 +35,8 @@ module.exports = {
   ...require('./candlestick-pattern/bearish-spinning-top.js'),
   ...require('./candlestick-pattern/morning-star.js'),
   ...require('./candlestick-pattern/morning-doji-star.js'),
+  ...require('./candlestick-pattern/three-black-crows.js'),
+  ...require('./candlestick-pattern/three-white-soldiers.js'),
 }
 
 // console.log(module);
@@ -137,13 +139,17 @@ const main = async () => {
     console.log('Test isBearishSpinningTopPattern')
     console.log(await module.exports.isBearishSpinningTopPattern('binance', 'BTC/USDT', '1h', false))
 
-
     console.log('Test isMorningStarPattern')
     console.log(await module.exports.isMorningStarPattern('binance', 'BTC/USDT', '1h', false))
 
     console.log('Test isMorningDojiStarPattern')
     console.log(await module.exports.isMorningDojiStarPattern('binance', 'BTC/USDT', '1h', false))
 
+    console.log('Test isThreeBlackCrowsPattern')
+    console.log(await module.exports.isThreeBlackCrowsPattern('binance', 'BTC/USDT', '1h', false))
+
+    console.log('Test isThreeWhiteSoldiersPattern')
+    console.log(await module.exports.isThreeWhiteSoldiersPattern('binance', 'BTC/USDT', '1h', false))
 
   } catch (err) {
     console.log(err)
