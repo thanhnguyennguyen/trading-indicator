@@ -1,6 +1,6 @@
 const { dragonflydoji, gravestonedoji } = require('technicalindicators')
 
-const THRESHOLD = parseFloat(1 / 1000)
+const THRESHOLD = parseFloat(2 / 10_000)
 
 const isDojiPattern = async (input) => {
   try {

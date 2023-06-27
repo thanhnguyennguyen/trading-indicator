@@ -1,3 +1,5 @@
+const BEARD_FACTOR = 3
+
 const isHangingManPattern = async (input) => {
   try {
     const last = input.open.length - 1
@@ -9,7 +11,7 @@ const isHangingManPattern = async (input) => {
     const beard = body > 0 ? input.open[last] - input.low[last] : input.close[last] - input.low[last]
     body = Math.abs(body)
 
-    if (beard < 2 * body) {
+    if (beard < BEARD_FACTOR * body) {
       return false
     }
     if (input.open[0] - input.close[last - 1] > 0) {
