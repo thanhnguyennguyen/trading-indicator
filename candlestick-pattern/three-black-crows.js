@@ -1,16 +1,12 @@
 const { threeblackcrows } = require('technicalindicators')
-const getOHLCV = require('../indicators/ohlcv.js')
-const detachSource = require('../indicators/source.js')
 
-const isThreeBlackCrowsPattern = async (ex, ticker, interval, isFuture = false) => {
+const isThreeBlackCrowsPattern = async (input) => {
   try {
-    let ohlcv = await getOHLCV(ex, ticker, interval, isFuture)
-    let source = detachSource(ohlcv)
     let singleInput = {
-      open: source['open'].slice(-4, -1),
-      high: source['high'].slice(-4, -1),
-      low: source['low'].slice(-4, -1),
-      close: source['close'].slice(-4, -1),
+      open: input.open.slice(-4, -1),
+      high: input.high.slice(-4, -1),
+      low: input.low.slice(-4, -1),
+      close: input.close.slice(-4, -1),
     }
     return threeblackcrows(singleInput)
   } catch (err) {
@@ -19,5 +15,5 @@ const isThreeBlackCrowsPattern = async (ex, ticker, interval, isFuture = false) 
 }
 
 module.exports = {
-    isThreeBlackCrowsPattern,
+  isThreeBlackCrowsPattern,
 }

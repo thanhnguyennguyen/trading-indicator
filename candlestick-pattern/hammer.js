@@ -1,23 +1,115 @@
-const { hammerpattern } = require('technicalindicators')
-const getOHLCV = require('../indicators/ohlcv.js')
-const detachSource = require('../indicators/source.js')
-
-const isHammerPattern = async (ex, ticker, interval, isFuture = false) => {
+const isBullishHammerPattern = async (input) => {
   try {
-    let ohlcv = await getOHLCV(ex, ticker, interval, isFuture)
-    let source = detachSource(ohlcv)
-    let singleInput = {
-      open: source['open'].slice(-6, -1),
-      high: source['high'].slice(-6, -1),
-      low: source['low'].slice(-6, -1),
-      close: source['close'].slice(-6, -1),
+    const last = input.open.length - 1
+    if (last < 4) {
+      console.error(`Require OHLCV of last 5 candles`)
+      return false
     }
-    return hammerpattern(singleInput)
+    let body = input.close[last] - input.open[last]
+    const beard = body > 0 ? input.open[last] - input.low[last] : input.close[last] - input.low[last]
+    body = Math.abs(body)
+
+    if (beard < 2 * body) {
+      return false
+    }
+    if (input.open[0] - input.close[last - 1] <= 0) {
+      return false
+    }
+    return true
   } catch (err) {
-    throw err
+    console.error(`Require OHLCV of last 5 candles`)
+    return false
   }
 }
 
+const isBearishHammerPattern = async (input) => {
+  try {
+    const last = input.open.length - 1
+    if (last < 4) {
+      console.error(`Require OHLCV of last 5 candles`)
+      return false
+    }
+    let body = input.close[last] - input.open[last]
+    const beard = body > 0 ? input.high[last] - input.close[last] : input.high[last] - input.open[last]
+    body = Math.abs(body)
+
+    if (beard < 2 * body) {
+      return false
+    }
+    if (input.open[0] - input.close[last - 1] > 0) {
+      return false
+    }
+    return true
+  } catch (err) {
+    console.error(`Require OHLCV of last 5 candles`)
+    return false
+  }
+}
+
+const isBullishInvertedHammerPattern = async (input) => {
+  try {
+    const last = input.open.length - 1
+    if (last < 4) {
+      console.error(`Require OHLCV of last 5 candles`)
+      return false
+    }
+    let body = input.close[last] - input.open[last]
+    const beard = body > 0 ? input.high[last] - input.close[last] : input.high[last] - input.open[last]
+    body = Math.abs(body)
+
+    if (beard < 2 * body) {
+      return false
+    }
+    if (input.open[0] - input.close[last - 1] <= 0) {
+      return false
+    }
+    return true
+  } catch (err) {
+    console.error(`Require OHLCV of last 5 candles`)
+    return false
+  }
+}
+
+const isBearishInvertedHammerPattern = async (input) => {
+  try {
+    const last = input.open.length - 1
+    if (last < 4) {
+      console.error(`Require OHLCV of last 5 candles`)
+      return false
+    }
+    let body = input.close[last] - input.open[last]
+    const beard = body > 0 ? input.open[last] - input.low[last] : input.close[last] - input.low[last]
+    body = Math.abs(body)
+
+    if (beard < 2 * body) {
+      return false
+    }
+    if (input.open[0] - input.close[last - 1] > 0) {
+      return false
+    }
+    return true
+  } catch (err) {
+    console.error(`Require OHLCV of last 5 candles`)
+    return false
+  }
+}
+
+const isHammerPattern = async (input) => {
+  if (
+    isBullishHammerPattern(input) ||
+    isBearishHammerPattern(input) ||
+    isBullishInvertedHammerPattern(input) ||
+    isBearishInvertedHammerPattern(input)
+  ) {
+    return true
+  }
+  return false
+}
+
 module.exports = {
-    isHammerPattern,
+  isHammerPattern,
+  isBullishHammerPattern,
+  isBearishHammerPattern,
+  isBullishInvertedHammerPattern,
+  isBearishInvertedHammerPattern,
 }

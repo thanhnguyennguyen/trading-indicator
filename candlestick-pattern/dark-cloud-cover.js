@@ -1,16 +1,12 @@
 const { darkcloudcover } = require('technicalindicators')
-const getOHLCV = require('../indicators/ohlcv.js')
-const detachSource = require('../indicators/source.js')
 
-const isDarkCloudCoverPattern = async (ex, ticker, interval, isFuture = false) => {
+const isDarkCloudCoverPattern = async (input) => {
   try {
-    let ohlcv = await getOHLCV(ex, ticker, interval, isFuture)
-    let source = detachSource(ohlcv)
     let singleInput = {
-      open: source['open'].slice(-3, -1),
-      high: source['high'].slice(-3, -1),
-      low: source['low'].slice(-3, -1),
-      close: source['close'].slice(-3, -1),
+      open: input.open.slice(-3, -1),
+      high: input.high.slice(-3, -1),
+      low: input.low.slice(-3, -1),
+      close: input.close.slice(-3, -1),
     }
     return darkcloudcover(singleInput)
   } catch (err) {

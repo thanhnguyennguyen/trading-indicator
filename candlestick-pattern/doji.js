@@ -1,18 +1,41 @@
-const { doji } = require('technicalindicators')
-const getOHLCV = require('../indicators/ohlcv.js')
-const detachSource = require('../indicators/source.js')
+const { dragonflydoji, gravestonedoji } = require('technicalindicators')
 
-const isDojiPattern = async (ex, ticker, interval, isFuture = false) => {
+const THRESHOLD = parseFloat(1 / 1000)
+
+const isDojiPattern = async (input) => {
   try {
-    let ohlcv = await getOHLCV(ex, ticker, interval, isFuture)
-    let source = detachSource(ohlcv)
-    let singleInput = {
-      open: source['open'].slice(-2, -1),
-      high: source['high'].slice(-2, -1),
-      low: source['low'].slice(-2, -1),
-      close: source['close'].slice(-2, -1),
+    const body = Math.abs(input.close.slice(-1) - input.open.slice(-1))
+    if (parseFloat(body / input.close.slice(-1)) < THRESHOLD) {
+      return true
     }
-    return doji(singleInput)
+    return false
+  } catch (err) {
+    throw err
+  }
+}
+
+const isDragonFlyDojiPattern = async (input) => {
+  try {
+    let singleInput = {
+      open: input.open.slice(-2, -1),
+      high: input.high.slice(-2, -1),
+      low: input.low.slice(-2, -1),
+      close: input.close.slice(-2, -1),
+    }
+    return dragonflydoji(singleInput)
+  } catch (err) {
+    throw err
+  }
+}
+const isGraveStoneDojiPattern = async (input) => {
+  try {
+    let singleInput = {
+      open: input.open.slice(-2, -1),
+      high: input.high.slice(-2, -1),
+      low: input.low.slice(-2, -1),
+      close: input.close.slice(-2, -1),
+    }
+    return gravestonedoji(singleInput)
   } catch (err) {
     throw err
   }
@@ -20,4 +43,6 @@ const isDojiPattern = async (ex, ticker, interval, isFuture = false) => {
 
 module.exports = {
   isDojiPattern,
+  isDragonFlyDojiPattern,
+  isGraveStoneDojiPattern,
 }

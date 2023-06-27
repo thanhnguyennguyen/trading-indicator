@@ -14,38 +14,24 @@ module.exports = {
   ...require('./indicators/atr.js'),
   ...require('./indicators/adx.js'),
 
+  ...require('./candlestick-pattern/input.js'),
   ...require('./candlestick-pattern/doji.js'),
   ...require('./candlestick-pattern/abandoned-baby.js'),
-  ...require('./candlestick-pattern/bearish-engulfing.js'),
-  ...require('./candlestick-pattern/bullish-engulfing.js'),
+  ...require('./candlestick-pattern/engulfing.js'),
   ...require('./candlestick-pattern/dark-cloud-cover.js'),
   ...require('./candlestick-pattern/downside-tasuki-gap.js'),
-  ...require('./candlestick-pattern/dragon-fly-doji.js'),
-  ...require('./candlestick-pattern/grave-stone-doji.js'),
-  ...require('./candlestick-pattern/bullish-harami.js'),
-  ...require('./candlestick-pattern/bearish-harami.js'),
-  ...require('./candlestick-pattern/bullish-harami-cross.js'),
-  ...require('./candlestick-pattern/bearish-harami-cross.js'),
-  ...require('./candlestick-pattern/bullish-marubozu.js'),
-  ...require('./candlestick-pattern/bearish-marubozu.js'),
-  ...require('./candlestick-pattern/evening-doji-star.js'),
+  ...require('./candlestick-pattern/harami.js'),
+  ...require('./candlestick-pattern/marubozu.js'),
   ...require('./candlestick-pattern/evening-star.js'),
   ...require('./candlestick-pattern/piercing-line.js'),
-  ...require('./candlestick-pattern/bullish-spinning-top.js'),
-  ...require('./candlestick-pattern/bearish-spinning-top.js'),
+  ...require('./candlestick-pattern/spinning-top.js'),
   ...require('./candlestick-pattern/morning-star.js'),
-  ...require('./candlestick-pattern/morning-doji-star.js'),
   ...require('./candlestick-pattern/three-black-crows.js'),
   ...require('./candlestick-pattern/three-white-soldiers.js'),
   ...require('./candlestick-pattern/hammer.js'),
-  ...require('./candlestick-pattern/bullish-hammer.js'),
-  ...require('./candlestick-pattern/bullish-inverted-hammer.js'),
-  ...require('./candlestick-pattern/bearish-hammer.js'),
-  ...require('./candlestick-pattern/bearish-inverted-hammer.js'),
   ...require('./candlestick-pattern/hanging-man.js'),
   ...require('./candlestick-pattern/shooting-star.js'),
-  ...require('./candlestick-pattern/tweezer-top.js'),
-  ...require('./candlestick-pattern/tweezer-bottom.js'),
+  ...require('./candlestick-pattern/tweezer.js'),
 }
 
 // console.log(module);
@@ -91,105 +77,105 @@ const main = async () => {
     console.log('Test break out BB')
     console.log(await module.exports.bbCheck(50, 2, 'binance', 'BTC/USDT', '1h', false))
 
+    const { input } = await module.exports.getCandleStickInput('binance', 'BTC/USDT', '1h', false)
+
     console.log('Test isDoji')
-    console.log(await module.exports.isDojiPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isDojiPattern(input))
 
     console.log('Test abandonedBaby')
-    console.log(await module.exports.isAbandonedBabyPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isAbandonedBabyPattern(input))
 
     console.log('Test isBearishEngulfingPattern')
-    console.log(await module.exports.isBearishEngulfingPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isBearishEngulfingPattern(input))
 
     console.log('Test isBullishEngulfingPattern')
-    console.log(await module.exports.isBullishEngulfingPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isBullishEngulfingPattern(input))
 
     console.log('Test isDarkCloudCoverPattern')
-    console.log(await module.exports.isDarkCloudCoverPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isDarkCloudCoverPattern(input))
 
     console.log('Test isDownsideTasukiGapPattern')
-    console.log(await module.exports.isDownsideTasukiGapPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isDownsideTasukiGapPattern(input))
 
     console.log('Test isDragonFlyDojiPattern')
-    console.log(await module.exports.isDragonFlyDojiPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isDragonFlyDojiPattern(input))
 
     console.log('Test isGraveStoneDojiPattern')
-    console.log(await module.exports.isGraveStoneDojiPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isGraveStoneDojiPattern(input))
 
     console.log('Test isBullishHaramiPattern')
-    console.log(await module.exports.isBullishHaramiPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isBullishHaramiPattern(input))
 
     console.log('Test isBearishHaramiPattern')
-    console.log(await module.exports.isBearishHaramiPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isBearishHaramiPattern(input))
 
     console.log('Test isBullishHaramiCrossPattern')
-    console.log(await module.exports.isBullishHaramiCrossPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isBullishHaramiCrossPattern(input))
 
     console.log('Test isBearishHaramiCrossPattern')
-    console.log(await module.exports.isBearishHaramiCrossPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isBearishHaramiCrossPattern(input))
 
     console.log('Test isBullishMarubozuPattern')
-    console.log(await module.exports.isBullishMarubozuPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isBullishMarubozuPattern(input))
 
     console.log('Test isBearishMarubozuPattern')
-    console.log(await module.exports.isBearishMarubozuPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isBearishMarubozuPattern(input))
 
     console.log('Test isEveningDojiStarPattern')
-    console.log(await module.exports.isEveningDojiStarPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isEveningDojiStarPattern(input))
 
     console.log('Test isEveningStarPattern')
-    console.log(await module.exports.isEveningStarPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isEveningStarPattern(input))
 
     console.log('Test isPiercingLinePattern')
-    console.log(await module.exports.isPiercingLinePattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isPiercingLinePattern(input))
 
     console.log('Test isBullishSpinningTopPattern')
-    console.log(await module.exports.isBullishSpinningTopPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isBullishSpinningTopPattern(input))
 
     console.log('Test isBearishSpinningTopPattern')
-    console.log(await module.exports.isBearishSpinningTopPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isBearishSpinningTopPattern(input))
 
     console.log('Test isMorningStarPattern')
-    console.log(await module.exports.isMorningStarPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isMorningStarPattern(input))
 
     console.log('Test isMorningDojiStarPattern')
-    console.log(await module.exports.isMorningDojiStarPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isMorningDojiStarPattern(input))
 
     console.log('Test isThreeBlackCrowsPattern')
-    console.log(await module.exports.isThreeBlackCrowsPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isThreeBlackCrowsPattern(input))
 
     console.log('Test isThreeWhiteSoldiersPattern')
-    console.log(await module.exports.isThreeWhiteSoldiersPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isThreeWhiteSoldiersPattern(input))
 
     console.log('Test isHammerPattern')
-    console.log(await module.exports.isHammerPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isHammerPattern(input))
 
     console.log('Test isBullishHammerPattern')
-    console.log(await module.exports.isBullishHammerPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isBullishHammerPattern(input))
 
     console.log('Test isBullishInvertedHammerPattern')
-    console.log(await module.exports.isBullishInvertedHammerPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isBullishInvertedHammerPattern(input))
 
     console.log('Test isBearishHammerPattern')
-    console.log(await module.exports.isBearishHammerPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isBearishHammerPattern(input))
 
     console.log('Test isBearishInvertedHammerPattern')
-    console.log(await module.exports.isBearishInvertedHammerPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isBearishInvertedHammerPattern(input))
 
     console.log('Test isShootingStarPattern')
-    console.log(await module.exports.isShootingStarPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isShootingStarPattern(input))
 
     console.log('Test isHangingManPattern')
-    console.log(await module.exports.isHangingManPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isHangingManPattern(input))
 
     console.log('Test isTweezerTopPattern')
-    console.log(await module.exports.isTweezerTopPattern('binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.isTweezerTopPattern(input))
 
     console.log('Test isTweezerBottomPattern')
-    console.log(await module.exports.isTweezerBottomPattern('binance', 'BTC/USDT', '1h', false))
-
-
+    console.log(await module.exports.isTweezerBottomPattern(input))
   } catch (err) {
     console.log(err)
   }
 }
-// main()
+main()
