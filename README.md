@@ -82,13 +82,11 @@ npm install --save trading-indicator
   - Parameters:
       - Period: integer
       - Input source: "open" |  "high" | "low" | "close"
-      - Exchange
-      - Ticker
-      - Interval
-      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+      - Input : detach from OHLCV
   ```javascript
-    const atr = require('trading-indicator').atr
-    let atrData = await atr(14, "close", "binance", "BTC/USDT", "15m", true)
+    const { atr, getDetachSourceFromOHLCV } = require('trading-indicator')
+    const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+    let atrData = await atr(14, "close", input)
     console.log(atrData[atrData.length - 1])
   ```
 
@@ -96,13 +94,11 @@ npm install --save trading-indicator
   - Parameters:
       - Period: integer
       - Input source: "open" |  "high" | "low" | "close"
-      - Exchange
-      - Ticker
-      - Interval
-      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+      - Input : detach from OHLCV
   ```javascript
-    const adx = require('trading-indicator').adx
-    let adxData = await atr(14, "close", "binance", "BTC/USDT", "15m", true)
+    const { adx, getDetachSourceFromOHLCV } = require('trading-indicator')
+    const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+    let adxData = await adx(14, "close", input)
     console.log(adxData[adxData.length - 1])
   ```
 
@@ -114,13 +110,11 @@ npm install --save trading-indicator
       - Bollinger bands period: integer
       - stdDev : integer
       - Input source: "open" |  "high" | "low" | "close"
-      - Exchange
-      - Ticker
-      - Interval
-      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+      - Input : detach from OHLCV
   ```javascript
-      const bb = require('trading-indicator').bb
-      let bbData = await bb(50, 2, "close", "binance", "BTC/USDT", "15m", true)
+    const { bb, getDetachSourceFromOHLCV } = require('trading-indicator')
+    const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+      let bbData = await bb(50, 2, "close", input)
       console.log(bbData[bbData.length - 2])
   ```
   
@@ -128,13 +122,11 @@ npm install --save trading-indicator
    - Parameters:
       - MA period: integer
       - Input source: "open" |  "high" | "low" | "close"
-      - Exchange
-      - Ticker
-      - Interval
-      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+      - Input : detach from OHLCV
   ```javascript
-    const ema = require('trading-indicator').ema
-    let emaData = await ema(8, "close", "binance", "BTC/USDT", "15m", true)
+    const { ema, getDetachSourceFromOHLCV } = require('trading-indicator')
+    const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+    let emaData = await ema(8, "close", input)
     console.log(emaData[emaData.length - 1])
   ```
   
@@ -145,13 +137,11 @@ npm install --save trading-indicator
       - basePeriod: integer
       - spanPeriod: integer
       - displacement: integer
-      - Exchange
-      - Ticker
-      - Interval
-      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+      - Input : detach from OHLCV
   ```javascript
-    const ichimokuCloud = require('trading-indicator').ichimokuCloud
-    console.log(await ichimokuCloud(9, 26, 52, 26, 'binance', 'BTC/USDT', '1h', false))
+    const { ichimokuCloud, getDetachSourceFromOHLCV } = require('trading-indicator')
+    const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+    console.log(await ichimokuCloud(9, 26, 52, 26, input))
   ```
     
  ### MACD (Moving Average Convergence Divergence)
@@ -160,39 +150,31 @@ npm install --save trading-indicator
       - Slow period: integer
       - Signal period: integer
       - Input source: "open" |  "high" | "low" | "close"
-      - Exchange
-      - Ticker
-      - Interval
-      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+      - Input : detach from OHLCV
   ```javascript
-      const macd = require('trading-indicator').macd
-      console.log(await macd(12, 26, 9, "close", "binance", "BTC/USDT", "15m", true))
+    const { macd, getDetachSourceFromOHLCV } = require('trading-indicator')
+    const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+      console.log(await macd(12, 26, 9, "close", input))
   ```
 
  ### MFI
   - Parameters:
       - MFI period: integer
-      - Exchange
-      - Ticker
-      - Interval
-      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
-    
+      - Input : detach from OHLCV
   ```javascript
-     const mfi = require('trading-indicator').mfi
-     console.log(await mfi(14, "binance", "BTC/USDT", "15m", true))
+    const { mfi, getDetachSourceFromOHLCV } = require('trading-indicator')
+    const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+     console.log(await mfi(14, input))
    ```
 
   
  ### OBV
   - Parameters:
-      - Exchange
-      - Ticker
-      - Interval
-      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
-    
+      - Input : detach from OHLCV
   ```javascript
-     const obv = require('trading-indicator').obv
-     console.log(await obv("binance", "BTC/USDT", "15m", true))
+    const { obv, getDetachSourceFromOHLCV } = require('trading-indicator')
+    const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+     console.log(await obv(input))
    ```
 
   
@@ -200,27 +182,22 @@ npm install --save trading-indicator
   - Parameters:
       - RSI period: integer
       - Input source: "open" |  "high" | "low" | "close"
-      - Exchange
-      - Ticker
-      - Interval
-      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
-    
+      - Input : detach from OHLCV
   ```javascript
-     const rsi = require('trading-indicator').rsi
-     console.log(await rsi(14, "close", "binance", "BTC/USDT", "15m", true))
+    const { rsi, getDetachSourceFromOHLCV } = require('trading-indicator')
+    const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+     console.log(await rsi(14, "close", input))
    ```
 
  ### SMA (Simple Moving Average)
   - Parameters:
       - MA period: integer
       - Input source: "open" |  "high" | "low" | "close"
-      - Exchange
-      - Ticker
-      - Interval
-      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+      - Input : detach from OHLCV
   ```javascript
-    const sma = require('trading-indicator').sma
-    let smaData = await sma(8, "close", "binance", "BTC/USDT", "15m", true)
+    const { sma, getDetachSourceFromOHLCV } = require('trading-indicator')
+    const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+    let smaData = await sma(8, "close", input)
     console.log(smaData[smaData.length - 1])
   ```
   
@@ -231,27 +208,22 @@ npm install --save trading-indicator
       - rsiPeriod: integer
       - stochasticPeriod: integer
       - Input source: "open" |  "high" | "low" | "close"
-      - Exchange
-      - Ticker
-      - Interval
-      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
-    
+      - Input : detach from OHLCV
   ```javascript
-     const stochasticRSI = require('trading-indicator').stochasticRSI
-     console.log(await stochasticRSI(3, 3, 14, 14, "close", "binance", "BTC/USDT", "15m", true))
+    const { stochasticRSI, getDetachSourceFromOHLCV } = require('trading-indicator')
+    const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+     console.log(await stochasticRSI(3, 3, 14, 14, "close", input))
    ```
 
  ### WMA (Weighted Moving Average)
   - Parameters:
       - MA period: integer
       - Input source: "open" |  "high" | "low" | "close"
-      - Exchange
-      - Ticker
-      - Interval
-      - IsFuture exchange : true if future exchange (default is false, means that spot exchange)
+      - Input : detach from OHLCV
   ```javascript
-    const wma = require('trading-indicator').wma
-    let wmaData = await wma(8, "close", "binance", "BTC/USDT", "15m", true)
+    const { wma, getDetachSourceFromOHLCV } = require('trading-indicator')
+    const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+    let wmaData = await wma(8, "close", input)
     console.log(wmaData[wmaData.length - 1])
   ```
 
@@ -259,20 +231,18 @@ npm install --save trading-indicator
   - Parameter:
       - MA_FAST (should be 50)
       - MA_SLOW (should be 200)
-      - Exchange name      
-      - Symbol
-      - Interval
-      - IsFuture exchange
+      - Input : detach from OHLCV
       
       Sample code
       ```javascript
-        const { goldenCross, deathCross, maCross }  = require('trading-indicator')
-        
-        await goldenCross(50, 200, 'binance', 'BTC/USDT', '1h', false) 
-        await deathCross(50, 200, 'binance', 'BTC/USDT', '1h', false) 
+        const { goldenCross, deathCross, maCross, getDetachSourceFromOHLCV }  = require('trading-indicator')
+        const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+
+        await goldenCross(50, 200, input) 
+        await deathCross(50, 200, input) 
         
         // check both golden/death cross
-        await maCross(50, 200, 'binance', 'BTC/USDT', '1h', false) // response  { goldenCross: false, deathCross: false }
+        await maCross(50, 200, input) // response  { goldenCross: false, deathCross: false }
       ```
 
  ### RSI in overBought/overSold area
@@ -280,16 +250,13 @@ npm install --save trading-indicator
       - RSI Period
       - OverBoughtThreshold (75)
       - OverSoldThreshold (25)
-      - Exchange name
-      - Symbol
-      - Interval
-      - IsFuture exchange
+      - Input : detach from OHLCV
       
       Sample code
       ```javascript
-        const { rsiCheck } = require('trading-indicator')
-              
-        await rsiCheck(14, 75, 25, 'binance', 'BTC/USDT', '1h', false) 
+        const { rsiCheck, getDetachSourceFromOHLCV } = require('trading-indicator')
+        const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+        await rsiCheck(14, 75, 25, input) 
         // Test RSIcheck
         // { overBought: false, overSold: false, rsiVal: 27.81 }
       ```
@@ -297,21 +264,18 @@ npm install --save trading-indicator
  ### Price crosses SMA/EMA
   - Parameter:
       - MA Period
-      - Exchange name
-      - Symbol
-      - Interval
-      - IsFuture exchange
+      - Input : detach from OHLCV
       
       Sample code
       ```javascript
-        const { priceCrossSMA, priceCrossEMA }  = require('trading-indicator')
-      
-        await priceCrossSMA(14, 'binance', 'BTC/USDT', '1h', false) 
+        const { priceCrossSMA, priceCrossEMA, getDetachSourceFromOHLCV }  = require('trading-indicator')
+        const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+        await priceCrossSMA(14, input) 
         //Test SMA cross
         // { cross: true, direction: 'up' }
 
 
-        await priceCrossEMA(14, 'binance', 'BTC/USDT', '1h', false) 
+        await priceCrossEMA(14, input) 
         // Test EMA cross
         // { cross: true, direction: 'down' }
         
