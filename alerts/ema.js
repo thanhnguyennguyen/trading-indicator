@@ -1,11 +1,10 @@
 const { ema } = require('../indicators/ema.js')
-const getOHLCV = require('../indicators/ohlcv.js')
 const { crossover, crossunder } = require('../utils/cross.js')
 
-const calculateEMA = async (EMA_FAST, EMA_SLOW, exchange, symbol, interval, isFuture) => {
+const calculateEMA = async (EMA_FAST, EMA_SLOW, input) => {
   try {
-    let EMA_FAST_VAL = await ema(parseInt(EMA_FAST), 'close', exchange, symbol, interval, isFuture)
-    let EMA_SLOW_VAL = await ema(parseInt(EMA_SLOW), 'close', exchange, symbol, interval, isFuture)
+    let EMA_FAST_VAL = await ema(parseInt(EMA_FAST), 'close', input)
+    let EMA_SLOW_VAL = await ema(parseInt(EMA_SLOW), 'close', input)
     return {
       fast: EMA_FAST_VAL,
       slow: EMA_SLOW_VAL,
@@ -16,12 +15,12 @@ const calculateEMA = async (EMA_FAST, EMA_SLOW, exchange, symbol, interval, isFu
 }
 
 //let emaFastVal, emaSlowVal
-const egoldenCross = async (EMA_FAST, EMA_SLOW, exchange, symbol, interval, isFuture = false) => {
+const egoldenCross = async (EMA_FAST, EMA_SLOW, input) => {
   var emaFastVal
   var emaSlowVal
 
   //if (emaFastVal == undefined || emaSlowVal == undefined) {
-  let emaVal = await calculateEMA(EMA_FAST, EMA_SLOW, exchange, symbol, interval, isFuture)
+  let emaVal = await calculateEMA(EMA_FAST, EMA_SLOW, input)
   emaFastVal = emaVal.fast
   emaSlowVal = emaVal.slow
   //}
@@ -29,11 +28,11 @@ const egoldenCross = async (EMA_FAST, EMA_SLOW, exchange, symbol, interval, isFu
   return crossover(emaFastVal, emaSlowVal)
 }
 
-const edeathCross = async (EMA_FAST, EMA_SLOW, exchange, symbol, interval, isFuture = false) => {
+const edeathCross = async (EMA_FAST, EMA_SLOW, input) => {
   var emaFastVal
   var emaSlowVal
   //if (emaFastVal == undefined || emaSlowVal == undefined) {
-  let emaVal = await calculateEMA(EMA_FAST, EMA_SLOW, exchange, symbol, interval, isFuture)
+  let emaVal = await calculateEMA(EMA_FAST, EMA_SLOW, input)
   emaFastVal = emaVal.fast
   emaSlowVal = emaVal.slow
   //}
@@ -41,17 +40,16 @@ const edeathCross = async (EMA_FAST, EMA_SLOW, exchange, symbol, interval, isFut
   return crossunder(emaFastVal, emaSlowVal)
 }
 
-const emaCross = async (EMA_FAST, EMA_SLOW, exchange, symbol, interval, isFuture = false) => {
+const emaCross = async (EMA_FAST, EMA_SLOW, input) => {
   return {
-    egoldenCross: await egoldenCross(EMA_FAST, EMA_SLOW, exchange, symbol, interval, isFuture),
-    edeathCross: await edeathCross(EMA_FAST, EMA_SLOW, exchange, symbol, interval, isFuture),
+    egoldenCross: await egoldenCross(EMA_FAST, EMA_SLOW, input),
+    edeathCross: await edeathCross(EMA_FAST, EMA_SLOW, input),
   }
 }
 
-const priceCrossEMA = async (period, exchange, symbol, interval, isFuture = false) => {
-  let maVal = await ema(parseInt(period), 'close', exchange, symbol, interval, isFuture),
-    ohlcv = await getOHLCV(exchange, symbol, interval, isFuture),
-    price = [ohlcv[1][3], ohlcv[0][3]],
+const priceCrossEMA = async (period, input) => {
+  let maVal = await ema(parseInt(period), 'close', input),
+    price = input.slice(-2),
     up = crossover(price, maVal),
     down = crossunder(price, maVal)
   return {

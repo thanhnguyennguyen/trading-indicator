@@ -1,4 +1,3 @@
-
 const getOHLCV = require('../indicators/ohlcv.js')
 const detachSource = require('../indicators/source.js')
 

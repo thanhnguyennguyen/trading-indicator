@@ -1,6 +1,7 @@
 const ccxt = require('ccxt')
 const getOHLCV = async (ex, ticker, interval, isFuture = false) => {
   if (!ccxt.exchanges.includes(ex)) {
+    console.log(ex)
     throw 'Exchange is not supported'
   }
   try {

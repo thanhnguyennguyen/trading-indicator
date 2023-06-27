@@ -1,23 +1,9 @@
-const getOHLCV = require('./ohlcv.js')
-const detachSource = require('./source.js')
 const indicators = require('technicalindicators')
 
-const ichimokuCloud = async (
-  conversionPeriod,
-  basePeriod,
-  spanPeriod,
-  displacement,
-  ex,
-  ticker,
-  interval,
-  isFuture = false
-) => {
+const ichimokuCloud = async (conversionPeriod, basePeriod, spanPeriod, displacement, input) => {
   try {
-    let ohlcv = await getOHLCV(ex, ticker, interval, isFuture)
-    let source = detachSource(ohlcv)
     let ichimokuCloudInput = {
-      high: source['high'],
-      low: source['low'],
+      ...input,
       conversionPeriod: conversionPeriod,
       basePeriod: basePeriod,
       spanPeriod: spanPeriod,

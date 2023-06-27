@@ -1,5 +1,3 @@
-const getOHLCV = require('./ohlcv.js')
-const detachSource = require('./source.js')
 const indicators = require('technicalindicators')
 
 // adxInput ={
@@ -13,14 +11,10 @@ const adxCalculator = async (adxInput) => {
   return await indicators.ADX.calculate(adxInput)
 }
 
-const adx = async (period, ex, ticker, interval, isFuture = false) => {
+const adx = async (period, input) => {
   try {
-    let ohlcv = await getOHLCV(ex, ticker, interval, isFuture)
-    let source = detachSource(ohlcv)
     let adxInput = {
-      high: source['high'],
-      low: source['low'],
-      close: source['close'],
+      ...input,
       period: period,
     }
     return await adxCalculator(adxInput)

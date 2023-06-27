@@ -1,23 +1,9 @@
-const getOHLCV = require('./ohlcv.js')
-const detachSource = require('./source.js')
 const indicators = require('technicalindicators')
 
-const stochasticrsi = async (
-  k,
-  d,
-  rsiLength,
-  stochasticrsiLength,
-  sourceType,
-  ex,
-  ticker,
-  interval,
-  isFuture = false
-) => {
+const stochasticrsi = async (k, d, rsiLength, stochasticrsiLength, sourceType, input) => {
   try {
-    let ohlcv = await getOHLCV(ex, ticker, interval, isFuture)
-    let source = detachSource(ohlcv)
     let stochasticrsiInput = {
-      values: source[sourceType],
+      values: input[sourceType],
       kPeriod: k,
       dPeriod: d,
       stochasticPeriod: stochasticrsiLength,

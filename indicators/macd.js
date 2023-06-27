@@ -1,20 +1,15 @@
-const getOHLCV = require('./ohlcv.js')
-const detachSource = require('./source.js')
 const indicators = require('technicalindicators')
 
-const macd = async (fastPeriod, slowPeriod, signalPeriod, sourceType, ex, ticker, interval, isFuture = false) => {
+const macd = async (fastPeriod, slowPeriod, signalPeriod, sourceType, input) => {
   try {
-    let ohlcv = await getOHLCV(ex, ticker, interval, isFuture)
-    let source = detachSource(ohlcv)
-    let input = {
-      values: source[sourceType],
+    return await indicators.MACD.calculate({
+      values: input[sourceType],
       fastPeriod: fastPeriod,
       slowPeriod: slowPeriod,
       signalPeriod: signalPeriod,
       SimpleMAOscillator: false,
       SimpleMASignal: false,
-    }
-    return await indicators.MACD.calculate(input)
+    })
   } catch (err) {
     throw err
   }

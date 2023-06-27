@@ -1,4 +1,6 @@
 module.exports = {
+  ...require('./indicators/input.js'),
+
   ...require('./indicators/bollinger_band.js'),
   ...require('./indicators/ema.js'),
   ...require('./indicators/ichimoku.js'),
@@ -14,7 +16,6 @@ module.exports = {
   ...require('./indicators/atr.js'),
   ...require('./indicators/adx.js'),
 
-  ...require('./candlestick-pattern/input.js'),
   ...require('./candlestick-pattern/doji.js'),
   ...require('./candlestick-pattern/abandoned-baby.js'),
   ...require('./candlestick-pattern/engulfing.js'),
@@ -38,46 +39,46 @@ module.exports = {
 // examples for testing
 const main = async () => {
   try {
-    console.log('RSI 14 on Binance BTC/USDT 15m')
-    console.log(await module.exports.rsi(14, 'close', 'binance', 'BTC/USDT', '15m', true))
+    const { input } = await module.exports.getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false)
 
-    console.log('SMA 8 on Binance BTC/USDT 15m')
-    let smaData = await module.exports.sma(8, 'close', 'binance', 'BTC/USDT', '15m', true)
+    console.log('RSI 14 on Binance BTC/USDT 1h')
+    console.log(await module.exports.rsi(14, 'close', input))
+
+    console.log('SMA 8 on Binance BTC/USDT 1h')
+    let smaData = await module.exports.sma(8, 'close', input)
     console.log(smaData[smaData.length - 1])
 
-    console.log('Bollinger bands 50, 2 on Binance BTC/USDT 15m')
-    let bbData = await module.exports.bb(50, 2, 'close', 'binance', 'BTC/USDT', '15m', true)
+    console.log('Bollinger bands 50, 2 on Binance BTC/USDT 1h')
+    let bbData = await module.exports.bb(50, 2, 'close', input)
     console.log(bbData[bbData.length - 2])
 
-    console.log('MACD 12 26 9 on Binance BTC/USDT 15m')
-    let macdData = await module.exports.macd(12, 26, 9, 'close', 'binance', 'BTC/USDT', '15m', true)
+    console.log('MACD 12 26 9 on Binance BTC/USDT 1h')
+    let macdData = await module.exports.macd(12, 26, 9, 'close', input)
     console.log(macdData[macdData.length - 2])
 
     console.log('Stochastic RSI example')
-    console.log(await module.exports.stochasticrsi(3, 3, 14, 14, 'close', 'binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.stochasticrsi(3, 3, 14, 14, 'close', input))
 
     console.log('IchimokuCloud  example')
-    console.log(await module.exports.ichimokuCloud(9, 26, 52, 26, 'binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.ichimokuCloud(9, 26, 52, 26, input))
 
     console.log('Test golden cross')
-    console.log(await module.exports.goldenCross(50, 200, 'binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.goldenCross(50, 200, input))
 
     console.log('Test MA cross')
-    console.log(await module.exports.maCross(50, 200, 'binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.maCross(50, 200, input))
 
     console.log('Test RSIcheck')
-    console.log(await module.exports.rsiCheck(14, 75, 25, 'binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.rsiCheck(14, 75, 25, input))
 
     console.log('Test SMA cross')
-    console.log(await module.exports.priceCrossSMA(14, 'binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.priceCrossSMA(14, input))
 
     console.log('Test EMA cross')
-    console.log(await module.exports.priceCrossEMA(14, 'binance', 'BTC/USDT', '1h', false))
+    console.log(await module.exports.priceCrossEMA(14, input))
 
     console.log('Test break out BB')
-    console.log(await module.exports.bbCheck(50, 2, 'binance', 'BTC/USDT', '1h', false))
-
-    const { input } = await module.exports.getCandleStickInput('binance', 'BTC/USDT', '1h', false)
+    console.log(await module.exports.bbCheck(50, 2, input))
 
     console.log('Test isDoji')
     console.log(await module.exports.isDojiPattern(input))
@@ -178,4 +179,4 @@ const main = async () => {
     console.log(err)
   }
 }
-main()
+// main()
