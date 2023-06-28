@@ -4,9 +4,9 @@ const THRESHOLD = parseFloat(2 / 10_000)
 
 const isDojiPattern = async (input) => {
   try {
-    const last = input.close.length - 1
-    const body = Math.abs(input.close[last -1] - input.open[last - 1])
-    if (parseFloat(body / input.close.slice(-1)) < THRESHOLD) {
+    const last = input.open.length - 2 // confirmed candle : last - 2
+    const body = Math.abs(input.close[last] - input.open[last])
+    if (parseFloat(body / input.close[last]) < THRESHOLD) {
       return true
     }
     return false
