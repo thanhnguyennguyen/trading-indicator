@@ -2,7 +2,7 @@ const BEARD_FACTOR = 3
 
 const isBullishHammerPattern = async (input) => {
   try {
-    const last = input.open.length - 1
+    const last = input.open.length - 2 // confirmed candle : last - 2
     if (last < 4) {
       console.error(`Require OHLCV of last 5 candles`)
       return false
@@ -26,7 +26,7 @@ const isBullishHammerPattern = async (input) => {
 
 const isBearishHammerPattern = async (input) => {
   try {
-    const last = input.open.length - 1
+    const last = input.open.length - 2 // confirmed candle : last - 2
     if (last < 4) {
       console.error(`Require OHLCV of last 5 candles`)
       return false
@@ -50,7 +50,7 @@ const isBearishHammerPattern = async (input) => {
 
 const isBullishInvertedHammerPattern = async (input) => {
   try {
-    const last = input.open.length - 1
+    const last = input.open.length - 2 // confirmed candle : last - 2
     if (last < 4) {
       console.error(`Require OHLCV of last 5 candles`)
       return false
@@ -74,7 +74,7 @@ const isBullishInvertedHammerPattern = async (input) => {
 
 const isBearishInvertedHammerPattern = async (input) => {
   try {
-    const last = input.open.length - 1
+    const last = input.open.length - 2 // confirmed candle : last - 2
     if (last < 4) {
       console.error(`Require OHLCV of last 5 candles`)
       return false
