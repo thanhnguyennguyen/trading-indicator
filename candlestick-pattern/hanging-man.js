@@ -2,7 +2,7 @@ const BEARD_FACTOR = 3
 
 const isHangingManPattern = async (input) => {
   try {
-    const last = input.open.length - 1
+    const last = input.open.length - 2 // confirmed candle : last - 2
     if (last < 4) {
       console.error(`Require OHLCV of last 5 candles`)
       return false
