@@ -4,7 +4,8 @@ const THRESHOLD = parseFloat(2 / 10_000)
 
 const isDojiPattern = async (input) => {
   try {
-    const body = Math.abs(input.close.slice(-1) - input.open.slice(-1))
+    const last = input.close.length - 1
+    const body = Math.abs(input.close[last -1] - input.open[last - 1])
     if (parseFloat(body / input.close.slice(-1)) < THRESHOLD) {
       return true
     }
