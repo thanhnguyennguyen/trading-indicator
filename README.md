@@ -50,11 +50,11 @@ npm install --save trading-indicator
 ```
 
 ## Available Indicators
-[ADX](https://github.com/thanhnguyennguyen/trading-indicator#adx-average-directional-index), [ATR](https://github.com/thanhnguyennguyen/trading-indicator#atr-average-true-range), [Bollinger bands](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#bb-bollinger-bands) , [EMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#ema-exponential-moving-average), [IchimokuCloud](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#ichimokucloud), [MACD](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#macd-moving-average-convergence-divergence), [MFI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#mfi), [OBV](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#obv), [RSI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#rsi), [SMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#sma-simple-moving-average), [Stochastic RSI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#stochastic-rsi), [WMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#wma-weighted-moving-average)
+[ADX](https://github.com/thanhnguyennguyen/trading-indicator#adx-average-directional-index), [ATR](https://github.com/thanhnguyennguyen/trading-indicator#atr-average-true-range), [Bollinger bands](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#bb-bollinger-bands) , [CCI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#cci), [EMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#ema-exponential-moving-average), [IchimokuCloud](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#ichimokucloud), [KST](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#kst), [MACD](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#macd-moving-average-convergence-divergence), [MFI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#mfi), [OBV](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#obv), [RSI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#rsi), [SMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#sma-simple-moving-average), [Stochastic RSI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#stochastic-rsi), [VWAP](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#vwap), [WMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#wma-weighted-moving-average), 
 
 ## Available Alerts
 
-[Golden cross / Death cross](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#golden-cross--death-cross) , [RSI in overBought/overSold](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#rsi-in-overboughtoversold-area) , [Price crosses SMA/EMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#price-crosses-smaema)
+[Golden cross / Death cross](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#golden-cross--death-cross) , [RSI in overBought/overSold](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#rsi-in-overboughtoversold-area) , [Price crosses SMA/EMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#price-crosses-smaema), [VWAP crosses SMA/EMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#vwap-crosses-smaema), [KST crossing](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#kst-crossing)
 
 ## Supported exchanges
   
@@ -167,6 +167,25 @@ npm install --save trading-indicator
      console.log(await mfi(14, input))
    ```
 
+ ### CCI
+  - Parameters:
+      - CCI period: integer
+      - Input : detach from OHLCV
+  ```javascript
+    const { cci, getDetachSourceFromOHLCV } = require('trading-indicator')
+    const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+     console.log(await cci(14, input))
+   ```
+
+ ### VWAP
+  - Parameters:
+      - Input : detach from OHLCV
+  ```javascript
+    const { vwap, getDetachSourceFromOHLCV } = require('trading-indicator')
+    const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+     console.log(await vwap(input))
+   ```
+
   
  ### OBV
   - Parameters:
@@ -227,6 +246,26 @@ npm install --save trading-indicator
     console.log(wmaData[wmaData.length - 1])
   ```
 
+
+ ### KST
+  - Parameters:
+      - Input : detach from OHLCV
+      - ROC1
+      - ROC2
+      - ROC3
+      - ROC4
+      - SMA1
+      - SMA2
+      - SMA3
+      - SMA4
+      - SignalLength
+  ```javascript
+    const { kst, getDetachSourceFromOHLCV } = require('trading-indicator')
+    const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+     console.log(await kst(input, 10, 15, 20, 30, 10, 10, 10, 15, 9))
+   ```
+
+
  ### Golden cross / Death cross
   - Parameter:
       - MA_FAST (should be 50)
@@ -278,7 +317,50 @@ npm install --save trading-indicator
         await priceCrossEMA(14, input) 
         // Test EMA cross
         // { cross: true, direction: 'down' }
-        
+        ```
+ 
+ ### VWAP crosses SMA/EMA
+   - Parameter:
+      - MA Period
+      - Input : detach from OHLCV
+      
+      Sample code
+      ```javascript
+        const { vwapCrossSMA, vwapCrossEMA, getDetachSourceFromOHLCV }  = require('trading-indicator')
+        const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+        await vwapCrossSMA(14, input) 
+        //Test SMA cross
+        // { cross: true, direction: 'up' }
+
+
+        await vwapCrossEMA(14, input) 
+        // Test EMA cross
+        // { cross: true, direction: 'down' }
+        ```
+
+### KST crossing
+   - Parameter:
+      - Input : detach from OHLCV
+      - ROC1
+      - ROC2
+      - ROC3
+      - ROC4
+      - SMA1
+      - SMA2
+      - SMA3
+      - SMA4
+      - SignalLength
+      
+      Sample code
+      ```javascript
+        const { kstCross, getDetachSourceFromOHLCV }  = require('trading-indicator')
+        const { input } = await getDetachSourceFromOHLCV('binance', 'BTC/USDT', '1h', false) // true if you want to get future market
+        await kstCross(input, 10, 15, 20, 30, 10, 10, 10, 15, 9) 
+        //Test KST cross
+        // { cross: true, direction: 'up' }
+
+        ```
+
 
 ## Dependencies
 - [![ccxt](https://camo.githubusercontent.com/509b94aa541a5c3b461d1a84469f4b3d4112af57/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f434358542d6365727469666965642d677265656e2e7376673f73616e6974697a653d74727565)](https://github.com/ccxt/ccxt)

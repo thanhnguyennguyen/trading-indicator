@@ -1,4 +1,5 @@
 const { sma } = require('../indicators/sma.js')
+const { vwap } = require('../indicators/vwap.js')
 const { crossover, crossunder } = require('../utils/cross.js')
 const calculateMA = async (MA_FAST, MA_SLOW, input) => {
   try {
@@ -52,9 +53,22 @@ const priceCrossSMA = async (period, input) => {
   }
 }
 
+const vwapCrossSMA = async (period, input) => {
+  let vwap = await vwap(input)
+  let maVal = await sma(parseInt(period), 'close', input),
+    price = vwap.slice(-2),
+    up = crossover(price, maVal),
+    down = crossunder(price, maVal)
+  return {
+    cross: up || down,
+    direction: up ? 'up' : down ? 'down' : 'none',
+  }
+}
+
 module.exports = {
-  maCross: maCross,
-  goldenCross: goldenCross,
-  deathCross: deathCross,
-  priceCrossSMA: priceCrossSMA,
+  maCross,
+  goldenCross,
+  deathCross,
+  priceCrossSMA,
+  vwapCrossSMA,
 }

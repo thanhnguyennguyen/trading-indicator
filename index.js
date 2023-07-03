@@ -15,6 +15,9 @@ module.exports = {
   ...require('./alerts/index.js'),
   ...require('./indicators/atr.js'),
   ...require('./indicators/adx.js'),
+  ...require('./indicators/cci.js'),
+  ...require('./indicators/vwap.js'),
+  ...require('./indicators/kst.js'),
 
   ...require('./candlestick-pattern/doji.js'),
   ...require('./candlestick-pattern/abandoned-baby.js'),
@@ -175,8 +178,17 @@ const main = async () => {
 
     console.log('Test isTweezerBottomPattern')
     console.log(await module.exports.isTweezerBottomPattern(input))
+
+    console.log('Test CCI')
+    console.log(await module.exports.cci(14, input))
+
+    console.log('Test VWAP')
+    console.log(await module.exports.vwap(input))
+
+    console.log('Test KST')
+    console.log(await module.exports.kst(input, 10, 15, 20, 30, 10, 10, 10, 15, 9))
   } catch (err) {
     console.log(err)
   }
 }
-// main()
+main()

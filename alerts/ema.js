@@ -58,7 +58,20 @@ const priceCrossEMA = async (period, input) => {
   }
 }
 
+const vwapCrossEMA = async (period, input) => {
+  let vwap = await vwap(input)
+  let maVal = await ema(parseInt(period), 'close', input),
+    price = vwap.slice(-2),
+    up = crossover(price, maVal),
+    down = crossunder(price, maVal)
+  return {
+    cross: up || down,
+    direction: up ? 'up' : down ? 'down' : 'none',
+  }
+}
+
 module.exports = {
-  emaCross: emaCross,
-  priceCrossEMA: priceCrossEMA,
+  emaCross,
+  priceCrossEMA,
+  vwapCrossEMA,
 }
