@@ -1,6 +1,6 @@
 # Release Notes
 
-### [2.0.3](https://www.npmjs.com/package/trading-indicator/v/2.0.3) 
+### [2.0.4](https://www.npmjs.com/package/trading-indicator/v/2.0.4) 
 - More indicators:
     - CCI: Commodity Channel Index
     - KST: Know Sure Thing 
@@ -9,6 +9,8 @@
 - More alerts:
     - KST crossing: trigger when KST line crosses Signal line
     - VWAP cross SMA/EMA: trigger when VWAP line crosses SMA/EMA line
+
+### 2.0.3: broken version
 
 ### [2.0.2](https://www.npmjs.com/package/trading-indicator/v/2.0.2) 
 - Update for hammer, doji pattern: check last confirmed candle, ignore un-confirm candle
