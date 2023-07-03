@@ -50,11 +50,30 @@ npm install --save trading-indicator
 ```
 
 ## Available Indicators
-[ADX](https://github.com/thanhnguyennguyen/trading-indicator#adx-average-directional-index), [ATR](https://github.com/thanhnguyennguyen/trading-indicator#atr-average-true-range), [Bollinger bands](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#bb-bollinger-bands) , [CCI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#cci), [EMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#ema-exponential-moving-average), [IchimokuCloud](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#ichimokucloud), [KST](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#kst), [MACD](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#macd-moving-average-convergence-divergence), [MFI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#mfi), [OBV](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#obv), [RSI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#rsi), [SMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#sma-simple-moving-average), [Stochastic RSI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#stochastic-rsi), [VWAP](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#vwap), [WMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#wma-weighted-moving-average), 
+- [ADX](https://github.com/thanhnguyennguyen/trading-indicator#adx-average-directional-index)
+- [ATR](https://github.com/thanhnguyennguyen/trading-indicator#atr-average-true-range)
+- [Bollinger bands](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#bb-bollinger-bands)
+- [CCI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#cci)
+- [EMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#ema-exponential-moving-average)
+- [IchimokuCloud](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#ichimokucloud)
+- [KST](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#kst)
+- [MACD](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#macd-moving-average-convergence-divergence)
+- [MFI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#mfi)
+- [OBV](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#obv)
+- [RSI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#rsi)
+- [SMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#sma-simple-moving-average)
+- [Stochastic RSI](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#stochastic-rsi)
+- [VWAP](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#vwap)
+- [WMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#wma-weighted-moving-average), 
 
 ## Available Alerts
 
-[Golden cross / Death cross](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#golden-cross--death-cross) , [RSI in overBought/overSold](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#rsi-in-overboughtoversold-area) , [Price crosses SMA/EMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#price-crosses-smaema), [VWAP crosses SMA/EMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#vwap-crosses-smaema), [KST crossing](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#kst-crossing)
+- [Golden cross / Death cross](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#golden-cross--death-cross)
+- [KST crossing](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#kst-crossing)
+- [Price crosses SMA/EMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#price-crosses-smaema)
+- [RSI in overBought/overSold](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#rsi-in-overboughtoversold-area)
+- [VWAP crosses SMA/EMA](https://github.com/thanhnguyennguyen/trading-indicator/blob/master/README.md#vwap-crosses-smaema)
+
 
 ## Supported exchanges
   
