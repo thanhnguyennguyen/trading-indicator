@@ -1,5 +1,5 @@
 const { crossover, crossunder } = require('../utils/cross.js')
-const { sma } = require('../indicators/kst.js')
+const { kst } = require('../indicators/kst.js')
 
 const kstCross = async (
   input,
